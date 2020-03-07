@@ -2,7 +2,7 @@
 
 Estimados, sean bienvenidos al repositorio oficial para seguir la clase de **tecnologías** (antes llamada práctico) del grupo **ID-N6A Semestre 1 - 2020**.
 
-Aquí van a encontrar material con ejemplos de aplicación, links de interés y y cosas necesarias para seguir las clases y, por supuesto, para que les vaya bien en el obligatorio.
+Aquí van a encontrar material con ejemplos de aplicación, links de interés y cosas necesarias para seguir las clases y, por supuesto, para que **aprendan un montón y les vaya bien en el obligatorio**.
 
 El repositorio se va ir construyendo a medida que el curso avance de forma de poder adaptarlo a las necesidades del grupo.
 
