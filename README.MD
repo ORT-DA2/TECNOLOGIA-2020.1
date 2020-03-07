@@ -1,3 +1,4 @@
+
 # **Diseño de aplicaciones 2 - Clase de tecnologías**
 
 Estimados, sean bienvenidos al repositorio oficial para seguir la clase de **tecnologías** (antes llamada práctico) del grupo **ID-N6A Semestre 1 - 2020**.
@@ -17,7 +18,11 @@ Los docentes somos:
  - Daniel Acevedo (daniel18acevedo@gmail.com)
  - Andrés Bentos  (asbentos@hotmail.com)
 
+## Agradecimiento
+
 Queremos dar crédito a [Federico Ojeda](https://github.com/fedeojeda95), propietario del repo del cual hemos obtenido ejemplos y links, publicados en este lugar.
+
+## Acerca del curso
 
 El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA (Single Page Application) en Angular para trabajar con ese servidor. Haremos énfasis en las buenas prácticas de codificación y diseño de software desarrolladas a lo largo del curso DA2 y anteriores. ¡Acá se usa todo!
 
