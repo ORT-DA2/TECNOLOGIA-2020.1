@@ -6,4 +6,4 @@ Aquí van a encontrar material con ejemplos de aplicación, links de interés y 
 
 El repositorio se va ir construyendo a medida que el curso avance de forma de poder adaptarlo a las necesidades del grupo.
 
-Queremos dar crédito a [Federico Ojeda](https://github.com/fedeojeda95), propietario del repo del cual hemos obtenido ejemplos links publicados en este lugar.
+Queremos dar crédito a [Federico Ojeda](https://github.com/fedeojeda95), propietario del repo del cual hemos obtenido ejemplos y links, publicados en este lugar.
