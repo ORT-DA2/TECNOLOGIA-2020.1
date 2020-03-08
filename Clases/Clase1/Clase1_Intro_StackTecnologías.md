@@ -36,3 +36,16 @@ Es inprescindible tener GIT instalado en el equipo ya que es el repositorio que 
 
 -Se consigue acá: [GIT](https://git-scm.com) y se puede usar línea de comandos o aplicación con GUI. **En la que mejor trabajemos**.
 
+
+# Conceptos que se necesitan desde el día 0
+
+A nivel teórico y tecnológico todo lo que se dio en Diseño de Aplicaciones 1 se entiende como ya "dado" en este curso y por ello, los aspectos centrales deben estar claros: 
+	
+
+- Buenas prácticas de codificación y diseño, a modo de ejemplo Clean Code, principios SOLID y los GRASP, codificación con TDD y Refactoring.
+- UML 
+- Como se codifica en C#
+-  Se necesita tener claro el concepto de ORM y lo visto para Entity Framework. En particular vamos a usar [EF Core](https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx), si no se acuerdan o no conocen, pueden revisando eso.
+- Conocimientos adquiridos en asignaturas de Ingeniería de Software tales como elaborar documentación, tener una organización mínima en el proyecto, etc.
+
+
