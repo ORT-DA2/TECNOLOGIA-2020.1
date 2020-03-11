@@ -22,7 +22,7 @@ Recientemente, Microsoft decidio cambiar el rumbo y "rehacer" .NET de una manera
 
 Los lenguajes C#, Visual Basic y F# pueden usarse para escribir aplicaciones y bibliotecas para .NET Core. En este curso utilizaremos **C#** exclusivamente.
 
-![c#](../Resources/clase1/CsharpIcono.jpg) ![F#](../Resources/clase1/fsharpicono.png)
+![c#](../Resources/Clase1/CsharpIcono.jpg) ![F#](../Resources/Clase1/fsharpicono.png)
 
 
 ## Composicion
