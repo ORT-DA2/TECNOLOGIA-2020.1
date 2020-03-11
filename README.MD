@@ -16,7 +16,7 @@ Se organiza así:
 Los docentes somos:
 
  - Daniel Acevedo (daniel18acevedo@gmail.com)
- - Andrés Bentos  (asbentos@hotmail.com)
+ - Andrés Bentos  (sebita.uy@gmail.com)
 
 ## Agradecimiento
 
