@@ -1,40 +1,74 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Homeworks.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Homeworks.DataAccess
 {
-    public class HomeworksRepository
+    public class HomeworksRepository: IDisposable
     {
-        public List<Homework> GetHomeworks() {
-            List<Homework> homeworks = new List<Homework>();
-            
-            Exercise firstExercise = CreateExercise("firstProblem", 5);
-            Exercise secondExercise = CreateExercise("secondProblem", 6);
+         public HomeworksRepository(DbContext context)
+        {
+            Context = context;
+        }
+        // 1 - Creacion 
+        protected DbContext Context {get; set;}
 
-            Homework firstHomework = CreateHomework("firstDescription", firstExercise);
-            homeworks.Add(firstHomework);
+       
 
-            Homework secondHomework = CreateHomework("secondDescription", secondExercise);
-            homeworks.Add(secondHomework);
+        // 2- Acceso y manipulacion de datos en la DB
 
-            return homeworks;
+        public Homework Get(Guid id)
+        {
+            return Context.Set<Homework>().Include("Exercises").First(x => x.Id == id);
         }
 
-        private Exercise CreateExercise(String problem, int score) {
-            Exercise exercise = new Exercise();
-            exercise.Problem = problem;
-            exercise.Score = score;
-            return exercise;
+        public IEnumerable<Homework> GetAll()
+        {
+            return Context.Set<Homework>().Include("Exercises").ToList();
         }
 
-        private Homework CreateHomework(String description, Exercise exercise) {
-            Homework homework = new Homework();
-            homework.Exercises.Add(exercise);
-            homework.DueDate = DateTime.Now;
-            homework.Description = description;
-            return homework;
+        public void Add(Homework entity) {
+            Context.Set<Homework>().Add(entity);
         }
+
+        public void Remove(Homework entity) {
+            Context.Set<Homework>().Remove(entity);
+        }
+
+        public void Update(Homework entity) {
+            Context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void Save() {
+            Context.SaveChanges();
+        }
+
+        // 3 - Disposing
+
+        #region IDisposable Support
+
+        private bool disposedValue = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Context.Dispose();
+                }
+                disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
     }
 }

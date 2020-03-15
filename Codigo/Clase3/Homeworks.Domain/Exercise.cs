@@ -11,5 +11,17 @@ namespace Homeworks.Domain
         public Exercise() {
             Id = Guid.NewGuid();
         }
+
+        public bool IsValid()
+        {
+            return true;
+        }
+
+        public Exercise Update(Exercise entity)
+        {
+            if (entity.Problem != null) 
+                Problem = entity.Problem;
+            return this;
+        }
     }
 }
