@@ -662,12 +662,6 @@ Output:
 
   
 
-![Succesful migration](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated-2.png)
-
-  
-
-  
-
 Podemos ver que las tablas y la DB fueron creadas efectivamente:
 
   
