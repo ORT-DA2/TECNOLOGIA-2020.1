@@ -206,14 +206,9 @@ namespace  Homeworks.DataAccess
 
 {
 
-public  enum  ContextType {
+public  enum  ContextType {MEMORY, SQL}
 
-MEMORY, SQL
-
-}
-
-  
-
+ 
 public  class  ContextFactory : IDesignTimeDbContextFactory<HomeworksContext>
 
 {
@@ -361,7 +356,7 @@ dotnet ef migrations add CreateHomeworksDB -p ../Homeworks.DataAccess
 
   
 
-![Imagen CreateHomeworksDB](../imgs/entity-framework/migrationsCreated.png)
+![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated.png)
 
   
 
@@ -389,7 +384,7 @@ Output:
 
   
 
-![Succesful migration (../Resources/Clase3/migracionCreateDB.PNG)
+![Succesful migration (https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migracionCreateDB.png)
 
   
 
@@ -397,7 +392,7 @@ Podemos ver que las tablas y la DB fueron creadas efectivamente:
 
   
 
-![Created database](../Resources/Clase3/databaseWithTables.png)
+![Created database](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/databaseWithTables.png
 
   
 
