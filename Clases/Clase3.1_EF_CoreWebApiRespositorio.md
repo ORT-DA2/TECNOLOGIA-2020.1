@@ -351,13 +351,13 @@ dotnet ef migrations add CreateHomeworksDB -p ../Homeworks.DataAccess
 
 *con el parametro -p [proyecto], se coloca el proyecto donde se encuentra el db context. En nuestro caso, es el de DataAccess. Usamos `../Homeworks.DataAccess` asumiendo que estamos dentro de la carpeta Homeworks.WebApi*
 
-  
+
 
 **Output**:
 
   
 
-![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated.png)
+![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated-2.png)
 
   
 
@@ -365,7 +365,7 @@ Si vamos al proyecto `Homeworks.DataAccess`, nos debió haber generado una carpe
 
   
 
-![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated.png)
+![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migracionCreateDB.png)
 
   
 
