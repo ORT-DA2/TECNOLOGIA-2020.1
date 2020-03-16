@@ -364,7 +364,7 @@ Si vamos al proyecto `Homeworks.DataAccess`, nos debió haber generado una carpe
 
   
 
-![Imagen CreateHomeworksDB (../Resources/Clase3/migrationsCreated.PNG)
+![Imagen CreateHomeworksDB] (../Resources/Clase3/migrationsCreated.PNG)
 
   
 
@@ -384,7 +384,7 @@ Output:
 
   
 
-![Succesful migration (https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migracionCreateDB.png)
+![Succesful migration] (https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migracionCreateDB.png)
 
   
 
