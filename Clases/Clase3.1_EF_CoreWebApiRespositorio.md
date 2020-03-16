@@ -365,7 +365,7 @@ Si vamos al proyecto `Homeworks.DataAccess`, nos debió haber generado una carpe
 
   
 
-![Imagen CreateHomeworksDB] (../Resources/Clase3/migrationsCreated.PNG)
+![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated.png)
 
   
 
@@ -385,7 +385,7 @@ Output:
 
   
 
-![Succesful migration] (https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migracionCreateDB.png)
+![Succesful migration](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migracionCreateDB.png)
 
   
 
@@ -393,7 +393,7 @@ Podemos ver que las tablas y la DB fueron creadas efectivamente:
 
   
 
-![Created database](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/databaseWithTables.png
+![Created database](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/databaseWithTables.png)
 
   
 
