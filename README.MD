@@ -33,7 +33,7 @@ Los docentes somos:
 
 - Daniel Acevedo (daniel18acevedo@gmail.com)
 
-- Andrés Bentos (sebita.uy@gmail.com)
+- Andrés Bentos (asbentos@gmail.com)
 
   
 
@@ -61,7 +61,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 2 - WebApi y creación de WebApi
 
-- Clase 3 - Entity Framework Core
+- Clase 3 - [Entity Framework Core](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase3.1_EF_CoreWebApiRespositorio.md)
 
 - Clase 4 - Testing
 
