@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
 using Homeworks.BusinessLogic;
 using Homeworks.Domain;
 
@@ -14,19 +11,15 @@ namespace Homeworks.WebApi.Controllers
     public class HomeworksController: ControllerBase, IDisposable
     {
         private HomeworksLogic homeworksLogic;
-
         public HomeworksController() {
             homeworksLogic = new HomeworksLogic();
         }
-
-        // GET api/homeworks
         [HttpGet]
         public ActionResult Get()
-        {
+        {// GET api/homeworks
             IEnumerable<Homework> homeworks = homeworksLogic.GetHomeworks();
             return Ok(homeworks);
         }
-
         [HttpGet("{id}", Name = "Get")]
         // /api/homeworks/{id}
         public IActionResult Get(Guid id)
@@ -45,7 +38,6 @@ namespace Homeworks.WebApi.Controllers
             }
             return Ok(homeWorktoGet);
         }
-
         [HttpPost]
         public IActionResult Post([FromBody] Homework homework)
         {
@@ -56,7 +48,6 @@ namespace Homeworks.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-
         [HttpPost("{id}/Exercises", Name = "AddExercise")]
         public IActionResult PostExercise(Guid id, [FromBody] Exercise exercise)
         {
@@ -66,7 +57,6 @@ namespace Homeworks.WebApi.Controllers
             }
             return CreatedAtRoute("GetExercise", new { id = createdExercise.Id }, createdExercise);
         }
-
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, [FromBody] Homework homework)
         {
@@ -77,14 +67,12 @@ namespace Homeworks.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
             homeworksLogic.Remove(id);
             return NoContent();
         }
-
         public void Dispose()
         {
             homeworksLogic.Dispose();
