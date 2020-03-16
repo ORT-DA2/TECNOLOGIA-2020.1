@@ -38,20 +38,20 @@ A continuación crearemos un proyecto de ejemplo, sobre el cual seguiremos traba
 
 ### [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%202%20-%20Creacion.md#creamos-el-sln-para-poder-abrirlo-en-vs2017-y-otras-utilidades-opcional)Creamos el sln para poder abrirlo en vs2017 y otras utilidades (opcional)
 
-```
+```c#
 dotnet new sln
 ```
 
 ### Creamos el proyecto webapi y lo agregamos al sln
 
-```
+```c#
 dotnet new webapi -au none -n Homeworks.WebApi
 dotnet sln add Homeworks.WebApi
 ```
 
 ### Creamos la libreria businesslogic y la agregamos al sln
 
-```
+```c#
 dotnet new classlib -n Homeworks.BusinessLogic
 dotnet sln add Homeworks.BusinessLogic
 
@@ -59,7 +59,7 @@ dotnet sln add Homeworks.BusinessLogic
 
 ### [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%202%20-%20Creacion.md#creamos-la-libreria-dataaccess-y-la-agregamos-al-sln)Creamos la libreria dataaccess y la agregamos al sln
 
-```
+```c#
 dotnet new classlib -n Homeworks.DataAccess
 dotnet sln add Homeworks.DataAccess
 
@@ -67,7 +67,7 @@ dotnet sln add Homeworks.DataAccess
 
 ### [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%202%20-%20Creacion.md#creamos-la-libreria-domain-y-la-agregamos-al-sln)Creamos la libreria domain y la agregamos al sln
 
-```
+```c#
 dotnet new classlib -n Homeworks.Domain
 dotnet sln add Homeworks.Domain
 
@@ -75,7 +75,7 @@ dotnet sln add Homeworks.Domain
 
 ### [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%202%20-%20Creacion.md#agregamos-referencias-de-los-proyectos-a-la-webapi)Agregamos referencias de los proyectos a la webapi
 
-```
+```c#
 dotnet add Homeworks.WebApi reference Homeworks.DataAccess
 dotnet add Homeworks.WebApi reference Homeworks.Domain
 dotnet add Homeworks.WebApi reference Homeworks.BusinessLogic
@@ -84,7 +84,7 @@ dotnet add Homeworks.WebApi reference Homeworks.BusinessLogic
 
 ### [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%202%20-%20Creacion.md#agregamos-la-referencia-del-domain-al-dataaccess)Agregamos la referencia del domain al dataaccess
 
-```
+```c#
 dotnet add Homeworks.DataAccess reference Homeworks.Domain
 
 ```
