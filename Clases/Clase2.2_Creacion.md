@@ -91,7 +91,7 @@ dotnet add Homeworks.DataAccess reference Homeworks.Domain
 
 ### [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%202%20-%20Creacion.md#agregamos-las-referencias-de-domain-y-dataaccess-a-businesslogic)Agregamos las referencias de domain y dataaccess a businesslogic
 
-```
+```c#
 dotnet add Homeworks.BusinessLogic reference Homeworks.Domain
 dotnet add Homeworks.BusinessLogic reference Homeworks.DataAccess
 
@@ -101,7 +101,7 @@ dotnet add Homeworks.BusinessLogic reference Homeworks.DataAccess
 
 Nos movemos a la carpeta WebApi (`cd Homeworks.WebApi`)
 
-```
+```c#
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 
@@ -109,7 +109,7 @@ dotnet add package Microsoft.EntityFrameworkCore.InMemory
 
 Nos movemos a la carpeta dataaccess (`cd Homeworks.DataAccess`)
 
-```
+```c#
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 
@@ -149,7 +149,7 @@ Este proyecto sera donde tengamos los controllers. Estos tendran la responsabili
 -   Obtener los datos que son enviados en las requests (ya sea por la URL, por headers, por el body, etc)
 
 Primero borraremos la clase  `ValuesController`  de adentro de  `Controllers`  y crearemos la clase  `HomeworksController`. Dentro de esta clase, agregaremos una unica ruta:
-```
+```c#
 namespace Homeworks.WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -172,7 +172,7 @@ Para probarlo, podemos utilizar el browser. Si corremos  `dotnet run`  dentro de
 **Dentro de Homeworks.Domain**
 
 Crearemos la clase que representa a nuestros deberes,  `Homeworks`.
-```
+```c#
 using System;
 using System.Collections.Generic;
 
@@ -195,7 +195,7 @@ namespace Homeworks.Domain
 ```
 
 Nuestros "Deberes" (`Homework`) tienen una lista de ejercicios. Debido a esto, tambien debemos crear la clase `Exercise`
-```
+```c#
 using System;
 
 namespace Homeworks.Domain
@@ -217,7 +217,7 @@ Ambas clases son muy simples, asi que no necesitan explicacion alguna. Lo unico 
 **Dentro de Homeworks.BusinessLogic**
 
 Crearemos una clase llamada  `HomeworksLogic`, la cual tiene la logica de nuestros "Deberes". Esta clase no tendra ninguna logica aun.
-```
+```c#
 using System;
 
 namespace Homeworks.BusinessLogic
@@ -230,7 +230,7 @@ namespace Homeworks.BusinessLogic
 **Dentro de Homeworks.DataAccess**
 
 Dentro del proyecto de DataAccess, crearemos  `HomeworksRepository`. Este seria el encargado de devolvernos los datos necesarios que tengamos guardados. Como no tenemos logica alguna, simplemente crearemos un par de objetos  _dummy_  y los devolveremos en una lista. El codigo es bastante directo, simplemente creamos dos  `Exercise`  y dos  `Homework`.
-```
+```c#
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -277,7 +277,7 @@ namespace Homeworks.DataAccess
 Ahora es hora de conectar todo. Haremos que  `HomeworksController`  tenga una instancia de  `HomeworksLogic`, y que esta ultima tenga una instancia de  `HomeworksRepository`. Cada una llamara al metodo de cada clase.
 
 _Controller:_
-```
+```c#
 [Route("api/[controller]")]
 [ApiController]
 public class HomeworksController : ControllerBase
@@ -298,7 +298,7 @@ public class HomeworksController : ControllerBase
 }
 ```
 _Logic:_
-```
+```c#
  public class HomeworksLogic
     {
         private HomeworksRepository homeworksRepository;
