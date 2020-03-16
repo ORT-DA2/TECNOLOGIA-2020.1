@@ -88,7 +88,7 @@ Para mas informacion, se puede leer en la [documentación oficial](https://docs.
 
   
 
-```
+```c#
 using  Microsoft.EntityFrameworkCore;
 
 using  Homeworks.Domain;
@@ -121,7 +121,7 @@ Le haremos unas pequeñas actualizaciones a las clases de nuestro dominiom, agre
 
 **Exercise:**
 
-```
+```c#
 using  System;
 namespace  Homeworks.Domain
 {
@@ -147,7 +147,7 @@ namespace  Homeworks.Domain
 
 **Homework**
 
-```
+```c#
 using  System;
 using  System.Collections.Generic;
 namespace  Homeworks.Domain
@@ -193,7 +193,7 @@ Crearemos una clase ContextFactory dentro de **Homeworks.DataAccess**. Esta indi
 
   
 
-```
+```c#
 
 using  Microsoft.EntityFrameworkCore;
 
@@ -292,7 +292,7 @@ Esta clase sera la que utilizemos **siempre** que queramos crear un contexto par
 
   
 
-```
+```c#
 
 dotnet add package Microsoft.EntityFrameworkCore.Design
 
@@ -316,7 +316,7 @@ En caso de estar en MacOS/Linux y estar utilizando `Docker` para la base de dato
 
   
 
-```
+```c#
 
 builder.UseSqlServer(@"Server=127.0.0.1,1433;Database=HomeworksDB;User Id=sa;Password=Abcd1234;");
 
@@ -341,7 +341,7 @@ Para esto debemos pararnos en el proyecto de `Homeworks.WebApi` en la consola y 
 
   
 
-```
+```c#
 
 dotnet ef migrations add CreateHomeworksDB -p ../Homeworks.DataAccess
 
@@ -377,7 +377,7 @@ Después de crear la migración es necesario ejecutarla. Para eso, utilizaremos 
 
   
 
-```
+```c#
 
 dotnet ef database update -p ../Homeworks.DataAccess
 
