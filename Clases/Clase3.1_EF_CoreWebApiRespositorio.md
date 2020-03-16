@@ -1,8 +1,10 @@
 # Clase 3 - Entity Framework Core - Code First
 
-  
+## Previo
+El ejercicio presentado aquí utiliza un proyecto base ya creado de uno de los ejemplos en el repositorio de ORT-DA2.
+Es posible acceder a ese código base, a partir del cual se creará este ejemplo. Para ello hacer [clic acá](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/tree/master/Resources/Clase3/ProyectoBaseEjercicioClase3_1).  
 
-  
+## El código aquí presentado es un ejemplo básico. Puede contener errores y es posible mejorarlo. ¡Tomar únicamente como guía!
 
 ## Instalacion de ambiente
 
