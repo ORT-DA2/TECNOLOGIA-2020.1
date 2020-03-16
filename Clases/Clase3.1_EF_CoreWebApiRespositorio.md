@@ -283,7 +283,7 @@ Esta clase sera la que utilizemos **siempre** que queramos crear un contexto par
 
   
 
-**Importante:** Si no les encuentra algun metodo (como `**builder.UseSqlServer**`), es porque talvez se olvidaron de agregar alguno de los paquetes:
+**Importante:** Si no les encuentra algun metodo (como `builder.UseSqlServer`), es porque talvez se olvidaron de agregar alguno de los paquetes:
 
   
 
