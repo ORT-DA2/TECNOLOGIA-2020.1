@@ -220,7 +220,7 @@ namespace Moodle.BusinessLogic
     }
 }
 ```
-[**En Homeworks.WebApi**](https://youtu.be/K5yHGXAaVDM)
+[**En Homeworks.WebApi**](https://youtu.be/a6VyIfmJ6e4)
 
 Este proyecto sera donde tengamos los controllers. Estos tendran la responsabilidad de:
 
@@ -255,7 +255,7 @@ Esta ruta lo que hace es devolvernos la lista de estudiantes que esta creando `S
 
 Para [probarlo](https://youtu.be/lXlqmRalYt8), podemos utilizar el browser. Si corremos  `dotnet run`  dentro de  `Moodle.WebApi`, el proyecto se inicia. Si vamos a  `https://localhost:5001/api/students`  podemos ver el estudiante que creamos.
 
-[Posible error que puede aparecer cuando se prueba desde el puerto 5001](https://youtu.be/RLbC-HWtSqM)
+[Posible error que puede aparecer cuando se prueba desde el puerto 5001](https://youtu.be/K5yHGXAaVDM)
 
 
 
