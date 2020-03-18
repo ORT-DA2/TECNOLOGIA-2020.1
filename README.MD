@@ -57,7 +57,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
   
 
-- Clase 1 - [Introducción temática](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase1_Intro_StackTecnolog%C3%ADas.md) y [.NetCore](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase1_NetCore.md)
+- Clase 1 - [Introducción temática](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase1.1_Intro_StackTecnolog%C3%ADas.md) y [.NetCore](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase1.2_NetCore.md)
 
 - Clase 2 - [WebApi](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase2.1_WebApi.md) y [creación de WebApi](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Clases/Clase2.2_Creacion.md)
 
