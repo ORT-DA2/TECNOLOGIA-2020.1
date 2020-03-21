@@ -3,7 +3,7 @@
 
   
 
-Estimados, sean bienvenidos al repositorio oficial para seguir la clase de **tecnologías** (antes llamada práctico) del grupo **ID-N6A Semestre 1 - 2020**.
+Estimados, sean bienvenidos al repositorio oficial para seguir la clase de **tecnologías** (antes llamada práctico) del grupo ** ~~ID-N6A~~ Semestre 1 Todos los grupos - 2020**.
 
   
 
@@ -29,10 +29,10 @@ Se organiza así:
 
 Los docentes somos:
 
-  
-
+- Santiago Ménndez (santiagomendezvarela@outlook.com)
+- Sebastián Uriarte (sebastian.uriarteg@gmail.com) 
+- Nicolas Fierro (nicofierro94@gmail.com)
 - Daniel Acevedo (daniel18acevedo@gmail.com)
-
 - Andrés Bentos (asbentos@gmail.com)
 
   
