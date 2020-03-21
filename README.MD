@@ -3,7 +3,7 @@
 
   
 
-Estimados, sean bienvenidos al repositorio oficial para seguir la clase de **tecnologías** (antes llamada práctico) del grupo **~~ID-N6A~~ Semestre 1 Todos los grupos - 2020**.
+Estimados, sean bienvenidos al repositorio oficial para seguir las clase de **tecnologías** (antes llamada práctico) **de todos los grupos Semestre 1 Todos los grupos - 2020**.
 
   
 
