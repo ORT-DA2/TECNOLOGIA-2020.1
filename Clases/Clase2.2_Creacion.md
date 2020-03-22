@@ -143,7 +143,7 @@ Agregaremos un poco de funcionalidad muy basica al sistema que tenemos para pode
 
 [**En Moodle.Domain**](https://youtu.be/Needv7-yz2c)
 Crearemos la clase que representa a nuestros estudiantes,  `Student`.
-```
+```csharp
 using System;
 using System.Collections.Generic;
 
@@ -165,7 +165,7 @@ namespace Moodle.Domain
 ```
 
 
-```
+```csharp
 using System;
 
 namespace Moodle.Domain
@@ -186,7 +186,7 @@ namespace Moodle.Domain
 [**En Moodle.BusinessLogic**](https://youtu.be/CVp5mRqKJGo)
 
 Crearemos una clase llamada  `StudentLogic`, la cual tiene la logica de nuestros estudiantes y la clase `CourseLogic`, la cual tiene la logica de nuestros cursos.
-```
+```csharp
 using System;
 using Moodle.Domain;
 
@@ -209,7 +209,7 @@ namespace Moodle.BusinessLogic
     }
 }
 ```
-```
+```csharp
 using System;
 
 namespace Moodle.BusinessLogic
@@ -228,7 +228,7 @@ Este proyecto sera donde tengamos los controllers. Estos tendran la responsabili
 -   Obtener los datos que son enviados en las requests (ya sea por la URL, por headers, por el body, etc)
 
 Primero crearemos la clase  `StudentController` y luego `CourseController`. Dentro de `StudentController`, agregaremos una unica ruta:
-```
+```csharp
 namespace Moodle.WebApi.Controllers
 {
     [Route("api/[students]")]
