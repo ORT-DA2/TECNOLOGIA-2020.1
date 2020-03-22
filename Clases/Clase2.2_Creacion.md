@@ -28,8 +28,8 @@ En los titulos encontraran los videos explicando el contenido.
 
 No, no es necesario. Sin embargo, tener una trae varias utilidades:
 
--   Si usamos Visual Studio 2017, es necesario crearla para levantar todos los proyectos dentro del IDE
--   Aunque no usemos VS2017, tener una solucion permite crear/compilar/manejar todos los proyectos involucrados juntos, sin tener que correr cada uno, por ejemplo. Se maneja todo como una unica unidad.
+-   Si usamos Visual Studio 2019, es necesario crearla para levantar todos los proyectos dentro del IDE
+-   Aunque no usemos VS2019, tener una solucion permite crear/compilar/manejar todos los proyectos involucrados juntos, sin tener que correr cada uno, por ejemplo. Se maneja todo como una unica unidad.
 
 Para mas informacion, se puede leer  [aquí](https://stackoverflow.com/questions/42730877/net-core-when-to-use-dotnet-new-sln)
 ## [Creacion de proyecto HomeworkWebApi](https://youtu.be/JrOLycQE_5Y)
