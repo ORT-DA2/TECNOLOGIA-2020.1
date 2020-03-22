@@ -123,7 +123,7 @@ Antes de comenzar a progamar, es importante saber como esta formado cada uno de 
 
 Este es el archivo de configuracion del proyecto. Aqui se definen varias cosas como:
 
--   Version del framework usado (netcore2.2 por ejemplo)
+-   Version del framework usado (netcore3.1 por ejemplo)
 -   Dependencias a otros proyectos dentro de una solucion y el path a ellos (por ejemplo  `<ProjectReference Include="..\Homeworks.Domain\Moodle.Domain.csproj" />`  indica que hay una diferencia el proyecto  `Moodle.Domain`)
 -   Dependencias de paquetes externos de nuget. (Por ejemplo:  `<PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />`  indica que este proyecto utiliza  `EntityFrameworkCore`). Cuando se toma el proyecto nuevo, se utiliza esta informacion para bajar los archivos necesarios de nuget packages.
 
