@@ -231,7 +231,7 @@ Primero crearemos la clase  `StudentController` y luego `CourseController`. Dent
 ```csharp
 namespace Moodle.WebApi.Controllers
 {
-    [Route("api/[students]")]
+    [Route("api/students")]
     [ApiController]
     public class StudentController : ControllerBase
     {
