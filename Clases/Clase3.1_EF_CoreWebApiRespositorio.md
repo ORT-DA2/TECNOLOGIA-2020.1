@@ -16,11 +16,11 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 
   
 
-* Version: **2017**
+* Version: **2017** o superior
 
   
 
-* Instalacion
+* Instalación
 
   
 
