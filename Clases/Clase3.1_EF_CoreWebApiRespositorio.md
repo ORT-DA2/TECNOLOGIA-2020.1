@@ -21,7 +21,7 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 
 ## Videos
 
-* [Codificando Moodle.DataAccess](https://youtu.be/-YvfMrF507A)]
+* [Codificando Moodle.DataAccess](https://youtu.be/-YvfMrF507A)
 <!---
 * [Conectando los paquetes entre ellos](https://youtu.be/Qm43annwFn4)
 -->
@@ -38,6 +38,13 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 |`Microsoft.EntityFrameworkCore.InMemory`| (Opcional) Es un provider para bd en Memoria, es sobretodo útil para testing.
 
 Debemos tener todas estas librerias instaladas (mediante `dotnet add ...`) para usar EF Core.
+
+Además de estas librerías debemos tener instalado de manera global `dotnet ef`. Aquí puedes leer un poco más sobre [Entity Framework Core tools reference](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet).
+
+Ejecuta la siguiente linea para instalar ```dotnet ef```:
+```csharp
+dotnet tool install --global dotnet-ef
+```
 
 ## Proyecto
 Trabajaremos principalmente sobre el proyecto **DataAccess**, el cual tiene la responsabilidad de interactuar con la base de datos.
