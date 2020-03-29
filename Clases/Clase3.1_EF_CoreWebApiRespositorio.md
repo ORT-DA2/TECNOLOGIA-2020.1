@@ -1,3 +1,4 @@
+
 # Clase 3 - Entity Framework Core - Code First
 
 ## Previo
@@ -44,7 +45,14 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 
   
 
-*  **MacOS/Linux**: Existen otras opciones. La mejor es [Azure Data Studio](https://github.com/Microsoft/azuredatastudio), herramienta open source de microsoft disponible para todas las plataformas (Windows, MacOS, Linux. Tambien se encuentra [DBeaver](https://dbeaver.io/)
+ *  **MacOS/Linux**: Existen otras opciones. La mejor es [Azure Data Studio](https://github.com/Microsoft/azuredatastudio), herramienta open source de microsoft disponible para todas las plataformas (Windows, MacOS, Linux. Tambien se encuentra [DBeaver](https://dbeaver.io/)
+
+  ## Videos
+  
+
+ * [Codificando Moodle.DataAccess](https://youtu.be/-YvfMrF507A)
+ * [Conectando los paquetes entre ellos](https://youtu.be/Qm43annwFn4)
+
 
   
 
@@ -52,81 +60,30 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 
 ## Paquetes Necesarios para trabajar
 
-  
-
-  
-
-Paquete | Descripción
-
-  
-
------------- | -------------
-
-  
-
-`Microsoft.EntityFrameworkCore`| EF Core
-
-  
-
-`Microsoft.EntityFrameworkCore.Design`| Contiene toda la lógica de design-time para EF Core. Contiene clases que nos serviran para indicarle a EF Tools por ejemplo como crear un contexto.
-
-  
-
-`Microsoft.EntityFrameworkCore.SqlServer`| Es el provider para la bd Microsoft SQL Server
-
-  
-
-`Microsoft.EntityFrameworkCore.Tool`| Este paquete permite la ejecución de comandos de entityframework (dotnet ef). Este permite hacer más fácil realizar varias tareas de EF Core, como: migraciones, scaffolding, etc
-
-  
-
-`Microsoft.EntityFrameworkCore.InMemory`| (Opcional) Es un provider para bd en Memoria, es sobretodo útil para testing.
-
-  
-
-  
+ 
+|Paquete|Descripción|
+|-------|-----------|
+|`Microsoft.EntityFrameworkCore`| EF Core
+| `Microsoft.EntityFrameworkCore.Design`      |     Contiene toda la lógica de design-time para EF Core. Contiene clases que nos serviran para indicarle a EF Tools por ejemplo como crear un contexto.      
+|`Microsoft.EntityFrameworkCore.SqlServer` | Es el provider para la bd Microsoft SQL Server
+|`Microsoft.EntityFrameworkCore.Tools`|  Este paquete permite la ejecución de comandos de entityframework (dotnet ef). Este permite hacer más fácil realizar varias tareas de EF Core, como: migraciones, scaffolding, etc 
+|`Microsoft.EntityFrameworkCore.InMemory`| (Opcional) Es un provider para bd en Memoria, es sobretodo útil para testing.
 
 Debemos tener todas estas librerias instaladas (mediante `dotnet add ...`) para usar EF Core.
 
   
-
-  
-
 ## Proyecto
-
-  
-
-  
-
 Trabajaremos principalmente sobre el proyecto **DataAccess**, el cual tiene la responsabilidad de interactuar con la base de datos.
 
-  
-
-**Falta !!!
-
-Poner link al proyecto base
-
-Poner un link al UML de este proyecto**
-
-  
-
-  
+   
 
 ## Diferencias EF Core y EF6
 
-  
-
-  
 
 * EF6 funciona con .NET Framework 4.X, lo cual significa que funciona solo en Windows. Es una evolución del producto que fue creado hace varios años.
 
-  
-
 * EF Core es una reescritura completa del framework. Busca replicar la experiencia de EF6.
 
-  
-
-  
 
 Para ver la comparacion feature por feature y obtener mas información [aquí](https://docs.microsoft.com/en-us/ef/efcore-and-ef6/)
 
@@ -136,15 +93,7 @@ Para ver la comparacion feature por feature y obtener mas información [aquí](h
 
 ## DB Context de Referencia
 
-  
-
-  
-
 Para empezar, crearemos un DbContext. Repasando, el DbContext es una parte integral de Entity Framework. Una instancia de un DbContext representa una sesión con la base de datos, la cual puede ser usada para realizar consultas y guardar registros de las entidades.
-
-  
-
-  
 
 Para mas informacion, se puede leer en la [documentación oficial](https://docs.microsoft.com/en-us/ef/core/) o en este [tutorial](http://www.entityframeworktutorial.net/efcore/entity-framework-core-dbcontext.aspx)
 
@@ -152,42 +101,24 @@ Para mas informacion, se puede leer en la [documentación oficial](https://docs.
 
   
 
-```c#
-
+```csharp
 using  Microsoft.EntityFrameworkCore;
-
-  
-
 using  Homeworks.Domain;
 
-  
-
 namespace  Homeworks.DataAccess
-
-  
-
 {
+	public  class  HomeworksContext : DbContext
+	{
 
-public  class  HomeworksContext : DbContext
+		public  DbSet<Homework> Homeworks { get; set; }
+		public  DbSet<Exercise> Exercises { get; set; }
 
-{
-
-public  DbSet<Homework> Homeworks { get; set; }
-
-public  DbSet<Exercise> Exercises { get; set; }
-
-public  HomeworksContext(DbContextOptions  options) : base(options) { }
-
+		public  HomeworksContext(DbContextOptions  options) : base(options) { }
+	}
 }
-
-}
-
 ```
 
   
-
-  
-
 Definimos dos DbSets; Cada uno de estos representara una tabla en la base de datos. Cabe destacar que hay que agregar las instrucciones `using`, las cuales indican que estamos usando otro proyecto. En este caso, debemos importar `EntityFrameworkCore`
 
   
@@ -196,122 +127,76 @@ Definimos dos DbSets; Cada uno de estos representara una tabla en la base de dat
 
 ## Actualizacion de clases del dominio
 
-  
-
-  
-
 Le haremos unas pequeñas actualizaciones a las clases de nuestro dominiom, agregando unos metodos. Vamos a `Homeworks.Domain` y actualizamos ambas clases: `Homeworks` y `Exercices`:
 
   
-
-  
-
 **Exercise:**
 
   
 
-```c#
-
+```csharp
 using  System;
-
 namespace  Homeworks.Domain
-
 {
+	public  class  Exercise
+	{
+		public  Guid  Id {get; set;}
+		public  string  Problem {get; set;}
+		public  int  Score {get; set;}
 
-public  class  Exercise
+		public  Exercise() { Id = Guid.NewGuid();}
 
-{
+		public  bool  IsValid(){ return  true; }
 
-public  Guid  Id {get; set;}
+		public  Exercise  Update(Exercise  entity)
+		{
+			if (entity.Problem != null)
+			
+			Problem = entity.Problem;
 
-public  string  Problem {get; set;}
-
-public  int  Score {get; set;}
-
-public  Exercise() { Id = Guid.NewGuid();}
-
-public  bool  IsValid(){ return  true; }
-
-  
-
-public  Exercise  Update(Exercise  entity)
-
-{
-
-if (entity.Problem != null)
-
-Problem = entity.Problem;
-
-return  this;
-
+			return  this;
+		}
+	}
 }
-
-}
-
-}
-
 ```
 
-  
-
-  
 
 **Homework**
 
   
 
-```c#
-
+```csharp
 using  System;
-
 using  System.Collections.Generic;
 
 namespace  Homeworks.Domain
-
 {
+	public  class  Homework
+	{
+		public  Guid  Id {get; set;}
+		public  DateTime  DueDate {get; set;}
+		public  string  Description {get; set;}
 
-public  class  Homework
+		public  List<Exercise> Exercises {get; set;}
 
-{
+		public  Homework()
+		{
+			Id = Guid.NewGuid();
+			Exercises = new  List<Exercise>();
+		}
 
-public  Guid  Id {get; set;}
+		public  bool  IsValid() { return  true; }
 
-public  DateTime  DueDate {get; set;}
-
-public  string  Description {get; set;}
-
-public  List<Exercise> Exercises {get; set;}
-
-  
-
-public  Homework()
-
-{
-
-Id = Guid.NewGuid();
-
-Exercises = new  List<Exercise>();
-
+		public  Homework  Update(Homework  entity)
+		{
+			if (entity.Description != null)
+			
+			Description = entity.Description;
+			
+			return  this;
+		}
+	}
 }
-
-public  bool  IsValid() { return  true; }
-
-public  Homework  Update(Homework  entity)
-
-{
-
-if (entity.Description != null)
-
-Description = entity.Description;
-
-return  this;
-
-}
-
-}
-
-}
-
 ```
 
   
@@ -327,214 +212,85 @@ No es necesario entender estos cambios ahora. Son algunos metodos que nos ayudar
 ## Microsoft SQL Server
 
   
-
-  
-
 Ahora crearemos la conexion con SQL Server.
 
   
-
 Crearemos una clase ContextFactory dentro de **Homeworks.DataAccess**. Esta indica como crear la conexión con la base de datos. Crearemos la contextFactory para que soporte MSQLS (Microsoft SQL server). Dentro del metodo `GetNewContext`, se obtiene una configuración para conectarse a la base de datos y se crea el contexto (en este caso, `HomeworksContext`).
 
   
 
   
 
-```c#
-
-  
-
+```csharp
 using  Microsoft.EntityFrameworkCore;
-
-  
-
 using  Microsoft.EntityFrameworkCore.Design;
-
-  
-
-  
-
 namespace  Homeworks.DataAccess
-
-  
-
 {
+	public  enum  ContextType {MEMORY, SQL}
 
-  
+	public  class  ContextFactory : IDesignTimeDbContextFactory<HomeworksContext>
+	{
+		public  HomeworksContext  CreateDbContext(string[] args) {
+			return  GetNewContext();
+		}
+		
+		public  static  HomeworksContext  GetNewContext(ContextType  type = ContextType.SQL)
+		{
+			var  builder = new  DbContextOptionsBuilder<HomeworksContext>();
+			DbContextOptions  options = null;
+			
+			if (type == ContextType.MEMORY) {
+				options = GetMemoryConfig(builder);
+			} else {
+				options = GetSqlConfig(builder);
+			}
+			
+			return  new  HomeworksContext(options);
+		}
 
-public  enum  ContextType {MEMORY, SQL}
+		private  static  DbContextOptions  GetMemoryConfig(DbContextOptionsBuilder  		builder) 
+		{
+			builder.UseInMemoryDatabase("HomeworksDB");
+			
+			return  builder.Options;
+		}
 
-  
-
-public  class  ContextFactory : IDesignTimeDbContextFactory<HomeworksContext>
-
-  
-
-{
-
-  
-
-public  HomeworksContext  CreateDbContext(string[] args) {
-
-  
-
-return  GetNewContext();
-
-  
-
+		private  static  DbContextOptions  GetSqlConfig(DbContextOptionsBuilder  builder)
+		 {
+			//TODO: Se puede mejorar esto colocando en un archivo externo y obteniendo
+			// desde allí la información.
+			builder.UseSqlServer(@"Server=127.0.0.1,1433;Database=HomeworksDB;User Id=sa;Password=Abcd1234;");
+			
+			return  builder.Options;
+		}
+	}
 }
-
-  
-
-  
-
-public  static  HomeworksContext  GetNewContext(ContextType  type = ContextType.SQL) {
-
-  
-
-var  builder = new  DbContextOptionsBuilder<HomeworksContext>();
-
-  
-
-DbContextOptions  options = null;
-
-  
-
-if (type == ContextType.MEMORY) {
-
-  
-
-options = GetMemoryConfig(builder);
-
-  
-
-} else {
-
-  
-
-options = GetSqlConfig(builder);
-
-  
-
-}
-
-  
-
-return  new  HomeworksContext(options);
-
-  
-
-}
-
-  
-
-  
-
-private  static  DbContextOptions  GetMemoryConfig(DbContextOptionsBuilder  builder) {
-
-  
-
-builder.UseInMemoryDatabase("HomeworksDB");
-
-  
-
-return  builder.Options;
-
-  
-
-}
-
-  
-
-  
-
-private  static  DbContextOptions  GetSqlConfig(DbContextOptionsBuilder  builder) {
-
-  
-
-//TODO: Se puede mejorar esto colocando en un archivo externo y obteniendo
-
-  
-
-// desde allí la información.
-
-  
-
-builder.UseSqlServer(@"Server=127.0.0.1,1433;Database=HomeworksDB;User Id=sa;Password=Abcd1234;");
-
-  
-
-return  builder.Options;
-
-  
-
-}
-
-  
-
-}
-
-  
-
-}
-
 ```
 
-  
-
-  
 
 Primera carateristica importante que notaran es que ahora ContextFactory está implementando **IDesignTimeDbContextFactory**. Esta Interfaz le indica a EF Tools como crear los db context, para ello nos pide implementar el siguiente metodo **CreateDbContext**
 
   
-
-  
-
 También agregamos el método `GetSqlConfig` que se encarga de crear la configuración para la conexión a MSQLS. Para esto simplemente hacemos `builder.UseSqlServer` y le pasamos el connection string.
-
-  
-
-  
 
 Esta clase sera la que utilizemos **siempre** que queramos crear un contexto para manipular o acceder la base de datos. Si no implementamos `IDesignTimeDbContextFactory`, EntityFramework no puede conectarse a la DB.
 
-  
-
-  
 
 **Importante:** Si no les encuentra algun metodo (como `builder.UseSqlServer`), es porque talvez se olvidaron de agregar alguno de los paquetes:
 
   
 
-  
-
-```c#
-
-  
-
-dotnet  add  package  Microsoft.EntityFrameworkCore.Design
-
-  
-
-dotnet  add  package  Microsoft.EntityFrameworkCore.Tool
-
-  
-
-dotnet  add  package  Microsoft.EntityFrameworkCore.SqlServer
-
-  
-
+```csharp
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tool
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-  
-
-  
 
 ### Connection string
 
   
 
-  
 
 en el metodo `builder.UseSqlServer(...)`, vemos como se pasa el connection string por parametro. Este indica los parametros necesario para conectarse a la base de datos local. El string ingresado previamente funciona perfectamente para Windows.
 
@@ -549,13 +305,7 @@ En caso de estar en MacOS/Linux y estar utilizando `Docker` para la base de dato
   
 
 ```c#
-
-  
-
 builder.UseSqlServer(@"Server=127.0.0.1,1433;Database=HomeworksDB;User Id=sa;Password=Abcd1234;");
-
-  
-
 ```
 
   
@@ -579,23 +329,12 @@ Aqui ingresamos directamente la IP de la computadora y el puerto, ademas de ingr
 EF Core, a diferencia del viejo EF, no nos creará automáticamente la BD si no se encuentra en MSQLS, entonces para resolver esto tenemos que crear la BD a través de una migración.
 
   
-
-  
-
 Para esto debemos pararnos en el proyecto de `Homeworks.WebApi` en la consola y lanzar el siguiente comando:
 
   
 
-  
-
-```c#
-
-  
-
+```csharp
 dotnet  ef  migrations  add  CreateHomeworksDB -p ../Homeworks.DataAccess
-
-  
-
 ```
 
   
@@ -616,13 +355,8 @@ dotnet  ef  migrations  add  CreateHomeworksDB -p ../Homeworks.DataAccess
 
 **Output**:
 
-  
-
-  
 
 ![Imagen CreateHomeworksDB](https://github.com/ORT-DA2/ID-N6A-TEC-2020.1/blob/master/Resources/Clase3/migrationsCreated-2.png)
-
-  
 
   
 
@@ -640,29 +374,14 @@ Si vamos al proyecto `Homeworks.DataAccess`, nos debió haber generado una carpe
 
 Después de crear la migración es necesario ejecutarla. Para eso, utilizaremos el siguiente comando:
 
-  
 
-  
-
-```c#
-
-  
-
+```csharp
 dotnet  ef  database  update -p ../Homeworks.DataAccess
-
-  
-
 ```
 
-  
-
-  
 
 Output:
 
-  
-
-  
 
 Podemos ver que las tablas y la DB fueron creadas efectivamente:
 
@@ -678,37 +397,17 @@ Podemos ver que las tablas y la DB fueron creadas efectivamente:
 
 ## Migraciones
 
-  
-
-  
-
 Las migraciones son la manera de mantener el schema de la BD sincronizado con el Dominio, por esto cada vez que se modifica el dominio se deberá crear una migracion.
-
   
+|Comando|Descripcion  |
+|--|--|
+|`dotnet ef migrations add NOMBRE_DE_LA_MIGRATION`| Este comando creará la migración. Crea 3 archivos: **1) .cs**: Contiene las operaciones Up() y Down() que se aplicaran a la BD para remover o añadir objetos. **2) .Designer.cs:** Contiene la metadata que va a ser usada por EF Core. **3) .ModelSnapshot.cs:** Contiene un snapshot del modelo actual. Que será usada para determinar qué cambio cuando se realice la siguiente migración. 
+|`dotnet ef database update` | Este comando crea la BD en base al context, las clases del dominio y el snapshot de la migración.
+|dotnet ef migrations remove`|Este comando remueve la ultima migración y revierte el snapshot a la migración anterior. Esto solo puede ocurrir si la migración no fue aplicada todavia.
+|`dotnet ef database update NOMBRE_DE_LA_MIGRATION`| Este commando lleva la BD al migración del nombre NOMBRE_DE_LA_MIGRATION.
 
-  
 
-Commando | Descripción
 
-  
-
------------- | -------------
-
-  
-
-`dotnet ef migrations add NOMBRE_DE_LA_MIGRATION` | Este comando creará la migración. Crea 3 archivos: **1) .cs**: Contiene las operaciones Up() y Down() que se aplicaran a la BD para remover o añadir objetos. **2) .Designer.cs:** Contiene la metadata que va a ser usada por EF Core. **3) .ModelSnapshot.cs:** Contiene un snapshot del modelo actual. Que será usada para determinar qué cambio cuando se realice la siguiente migración.
-
-  
-
-`dotnet ef database update`| Este comando crea la BD en base al context, las clases del dominio y el snapshot de la migración.
-
-  
-
-`dotnet ef migrations remove`| Este comando remueve la ultima migración y revierte el snapshot a la migración anterior. Esto solo puede ocurrir si la migración no fue aplicada todavia.
-
-  
-
-`dotnet ef database update NOMBRE_DE_LA_MIGRATION`| Este commando lleva la BD al migración del nombre NOMBRE_DE_LA_MIGRATION.
 
   
 
@@ -754,281 +453,82 @@ Hasta ahora, nuestro repositorio lo unico que hacia era devolver cosas `dummy`. 
 
   
 
-```c#
-
-  
-
+```csharp
 using  System;
-
-  
-
 using  System.Collections.Generic;
-
-  
-
 using  System.Linq;
-
-  
-
 using  Homeworks.Domain;
-
-  
-
 using  Microsoft.EntityFrameworkCore;
 
-  
-
-  
-
 namespace  Homeworks.DataAccess
-
-  
-
 {
+	public  class  HomeworksRepository: IDisposable
+	{
+		protected  DbContext  Context {get; set;}
+		public  HomeworksRepository(DbContext  context)
+		{
+			Context = context;
+		}
 
-  
+		// 2- Acceso y manipulacion de datos en la DB
+		public  Homework  Get(Guid  id)
+		{
+			return  Context.Set<Homework>().Include("Exercises").First(x => x.Id == id);
+		}
 
-public  class  HomeworksRepository: IDisposable
+		public  IEnumerable<Homework> GetAll()
+		{
+			return  Context.Set<Homework>().Include("Exercises").ToList();
+		}
 
-  
+		public  void  Add(Homework  entity) 
+		{
+			Context.Set<Homework>().Add(entity);
+		}
 
-{
+		public  void  Remove(Homework  entity) 
+		{
+			Context.Set<Homework>().Remove(entity);
+		}
 
-  
+		public  void  Update(Homework  entity) 
+		{
+			Context.Entry(entity).State = EntityState.Modified; 
+		}
 
-public  HomeworksRepository(DbContext  context)
+		public  void  Save() {
+			Context.SaveChanges();
+		}
 
-  
-
-{
-
-  
-
-Context = context;
-
-  
-
+	  // 3 - Disposing
+	#region IDisposable Support
+		private  bool  disposedValue = false;
+		protected  virtual  void  Dispose(bool  disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					Context.Dispose();
+				}
+				disposedValue = true;
+			}
+		}
+		public  void  Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+	#endregion
+	}
 }
-
-  
-
-// 1 - Creacion
-
-  
-
-protected  DbContext  Context {get; set;}
-
-  
-
-  
-
-  
-
-// 2- Acceso y manipulacion de datos en la DB
-
-  
-
-  
-
-public  Homework  Get(Guid  id)
-
-  
-
-{
-
-  
-
-return  Context.Set<Homework>().Include("Exercises").First(x => x.Id == id);
-
-  
-
-}
-
-  
-
-  
-
-public  IEnumerable<Homework> GetAll()
-
-  
-
-{
-
-  
-
-return  Context.Set<Homework>().Include("Exercises").ToList();
-
-  
-
-}
-
-  
-
-  
-
-public  void  Add(Homework  entity) {
-
-  
-
-Context.Set<Homework>().Add(entity);
-
-  
-
-}
-
-  
-
-  
-
-public  void  Remove(Homework  entity) {
-
-  
-
-Context.Set<Homework>().Remove(entity);
-
-  
-
-}
-
-  
-
-  
-
-public  void  Update(Homework  entity) {
-
-  
-
-Context.Entry(entity).State = EntityState.Modified;
-
-  
-
-}
-
-  
-
-  
-
-public  void  Save() {
-
-  
-
-Context.SaveChanges();
-
-  
-
-}
-
-  
-
-  
-
-// 3 - Disposing
-
-  
-
-  
-
-#region IDisposable Support
-
-  
-
-  
-
-private  bool  disposedValue = false;
-
-  
-
-  
-
-protected  virtual  void  Dispose(bool  disposing)
-
-  
-
-{
-
-  
-
-if (!disposedValue)
-
-  
-
-{
-
-  
-
-if (disposing)
-
-  
-
-{
-
-  
-
-Context.Dispose();
-
-  
-
-}
-
-  
-
-disposedValue = true;
-
-  
-
-}
-
-  
-
-}
-
-  
-
-  
-
-public  void  Dispose()
-
-  
-
-{
-
-  
-
-Dispose(true);
-
-  
-
-GC.SuppressFinalize(this);
-
-  
-
-}
-
-  
-
-  
-
-#endregion
-
-  
-
-}
-
-  
-
-}
-
 ```
-
-  
 
   
 
 Esta clase es grande y tiene mucho comportamiento, asi que la analizaremos por partes
 
-  
-
-  
+    
 
 1- Se crea el repositorio. Recibe en el constructor un contexto, el cual debe sera creado utilizando el `ContextFactory` que utilizamos previamente.
 
@@ -1070,314 +570,113 @@ Ahora usaremos nuestro nuevo repositorio en `HomeworksLogic`
 
   
 
-```c#
-
-  
-
+```csharp
 using  System;
-
-  
-
 using  System.Collections.Generic;
-
-  
-
-  
-
 using  Homeworks.Domain;
-
-  
-
 using  Homeworks.DataAccess;
-
-  
-
-  
-
 namespace  Homeworks.BusinessLogic
-
-  
-
 {
+	public  class  HomeworksLogic: IDisposable
+	{
+		private  HomeworksRepository  homeworksRepository;
+
+		public  HomeworksLogic() 
+		{
+			HomeworksContext  context = ContextFactory.GetNewContext();
+			homeworksRepository = new  HomeworksRepository(context);
+		}
+
+		public  Homework  Create(Homework  homework) 
+		{
+			//1
+			homeworksRepository.Add(homework);
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+			
+			return  homework;
+		}
+
+		public  void  Remove(Guid  id) 
+		{
+			//2
+			Homework  homework = homeworksRepository.Get(id);
+
+			if (homework == null) {
+			//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
+				throw  new  ArgumentException("Invalid guid");
+			}
+
+			homeworksRepository.Remove(homework);
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+		}
+
+		public  Exercise  AddExercise(Guid  id, Exercise  exercise)
+		{
+			Homework  homework = homeworksRepository.Get(id);
+			
+			if (homework == null) {
+				//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
+				throw  new  ArgumentException("Invalid guid");
+			}
+			
+			homework.Exercises.Add(exercise);
+			homeworksRepository.Update(homework);
+			
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+			
+			return  exercise;
+		}
+
+		  public  Homework  Update(Guid  id, Homework  homework) 
+		  {
+			//3
+			Homework  homeworkToUpdate = homeworksRepository.Get(id);
+			
+			if (homeworkToUpdate == null) {
+				//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
+				throw  new  ArgumentException("Invalid guid");
+			}
+			
+			homeworkToUpdate.Description = homework.Description;
+			homeworkToUpdate.DueDate = homework.DueDate;
+			
+			homeworksRepository.Update(homeworkToUpdate);
+
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+
+			return  homeworkToUpdate;
+		}
+
+		public  Homework  Get(Guid  id) 
+		{
+			//4
+			return  homeworksRepository.Get(id);
+		}
 
   
 
-public  class  HomeworksLogic: IDisposable
-
   
 
-{
-
-  
-
-private  HomeworksRepository  homeworksRepository;
+		public  IEnumerable<Homework> GetHomeworks() 
+		{
+			return  homeworksRepository.GetAll();
+		}
 
   
 
   
 
-public  HomeworksLogic() {
-
-  
-
-HomeworksContext  context = ContextFactory.GetNewContext();
-
-  
-
-homeworksRepository = new  HomeworksRepository(context);
-
-  
-
+		public  void  Dispose()
+		{
+			//TODO: ¿Por qué implementamos esto? ¿Cuándo se usa?
+			homeworksRepository.Dispose();
+		}
+	}
 }
-
-  
-
-public  Homework  Create(Homework  homework) {
-
-  
-
-//1
-
-  
-
-homeworksRepository.Add(homework);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-return  homework;
-
-  
-
-}
-
-  
-
-public  void  Remove(Guid  id) {
-
-  
-
-//2
-
-  
-
-Homework  homework = homeworksRepository.Get(id);
-
-  
-
-if (homework == null) {
-
-  
-
-//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
-
-  
-
-throw  new  ArgumentException("Invalid guid");
-
-  
-
-}
-
-  
-
-homeworksRepository.Remove(homework);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-}
-
-  
-
-  
-
-public  Exercise  AddExercise(Guid  id, Exercise  exercise)
-
-  
-
-{
-
-  
-
-Homework  homework = homeworksRepository.Get(id);
-
-  
-
-if (homework == null) {
-
-  
-
-//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
-
-  
-
-throw  new  ArgumentException("Invalid guid");
-
-  
-
-}
-
-  
-
-homework.Exercises.Add(exercise);
-
-  
-
-homeworksRepository.Update(homework);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-return  exercise;
-
-  
-
-}
-
-  
-
-  
-
-  
-
-public  Homework  Update(Guid  id, Homework  homework) {
-
-  
-
-//3
-
-  
-
-Homework  homeworkToUpdate = homeworksRepository.Get(id);
-
-  
-
-if (homeworkToUpdate == null) {
-
-  
-
-//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
-
-  
-
-throw  new  ArgumentException("Invalid guid");
-
-  
-
-}
-
-  
-
-homeworkToUpdate.Description = homework.Description;
-
-  
-
-homeworkToUpdate.DueDate = homework.DueDate;
-
-  
-
-homeworksRepository.Update(homeworkToUpdate);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-return  homeworkToUpdate;
-
-  
-
-}
-
-  
-
-  
-
-public  Homework  Get(Guid  id) {
-
-  
-
-//4
-
-  
-
-return  homeworksRepository.Get(id);
-
-  
-
-}
-
-  
-
-  
-
-public  IEnumerable<Homework> GetHomeworks() {
-
-  
-
-return  homeworksRepository.GetAll();
-
-  
-
-}
-
-  
-
-  
-
-public  void  Dispose()
-
-  
-
-{
-
-  
-
-//TODO: ¿Por qué implementamos esto? ¿Cuándo se usa?
-
-  
-
-homeworksRepository.Dispose();
-
-  
-
-}
-
-  
-
-}
-
-  
-
-}
-
 ```
 
   
@@ -1406,28 +705,12 @@ Este cambio es pequeño, ya que solo cambiamos el tipo de retorno de `GetHomewor
 
   
 
-```c#
-
-  
-
+```csharp
 public  ActionResult  Get()
-
-  
-
 {
-
-  
-
-IEnumerable<Homework> homeworks = homeworksLogic.GetHomeworks();
-
-  
-
-return  Ok(homeworks);
-
-  
-
+	IEnumerable<Homework> homeworks = homeworksLogic.GetHomeworks();
+	return  Ok(homeworks);
 }
-
 ```
 
   
@@ -1464,312 +747,121 @@ En `Homeworks.BusinessLogic` agregamos lo siguiente a `HomeworksLogic`. **Debe q
 
   
 
-```c#
-
+```csharp
 using  System;
-
-  
-
 using  System.Collections.Generic;
-
-  
-
-  
-
 using  Homeworks.Domain;
-
-  
-
 using  Homeworks.DataAccess;
-
-  
-
-  
-
 namespace  Homeworks.BusinessLogic
-
-  
-
 {
+	public  class  HomeworksLogic: IDisposable
+	{
+		private  HomeworksRepository  homeworksRepository;
+		
+		public  HomeworksLogic() 
+		{
+			HomeworksContext  context = ContextFactory.GetNewContext();
+			homeworksRepository = new  HomeworksRepository(context);
+		}
+	
+		public  Homework  Create(Homework  homework) 
+		{
+			//1
+			homeworksRepository.Add(homework);
+			
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+			
+			return  homework;
+		}
 
   
 
-public  class  HomeworksLogic: IDisposable
+		public  void  Remove(Guid  id) 
+		{
+			//2
+			Homework  homework = homeworksRepository.Get(id);
+			
+			if (homework == null) 
+			{
+				//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
+				throw  new  ArgumentException("Invalid guid");
+			}
+			
+			homeworksRepository.Remove(homework);
 
-  
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+		}
 
-{
+	  
 
-  
+	  
 
-private  HomeworksRepository  homeworksRepository;
+		public  Exercise  AddExercise(Guid  id, Exercise  exercise)
+		{
+			Homework  homework = homeworksRepository.Get(id);
 
-  
+			if (homework == null) 
+			{
+				//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
+				throw  new  ArgumentException("Invalid guid");
+			}
+			
+			homework.Exercises.Add(exercise);
+			homeworksRepository.Update(homework);
+			
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+			
+			return  exercise;
+		}
 
-  
+	  
 
-public  HomeworksLogic() {
+	  
 
-  
+	  
 
-HomeworksContext  context = ContextFactory.GetNewContext();
+		public  Homework  Update(Guid  id, Homework  homework) {
+			//3
+			Homework  homeworkToUpdate = homeworksRepository.Get(id);
 
-  
+			if (homeworkToUpdate == null) {
+				//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
+					throw  new  ArgumentException("Invalid guid");
+			}
 
-homeworksRepository = new  HomeworksRepository(context);
+			homeworkToUpdate.Description = homework.Description;
+			homeworkToUpdate.DueDate = homework.DueDate;
 
-  
+			homeworksRepository.Update(homeworkToUpdate);
 
+			//nunca olvidar esto !
+			homeworksRepository.Save();
+
+			return  homeworkToUpdate;
+		}  
+
+		public  Homework  Get(Guid  id) 
+		{
+			//4
+			return  homeworksRepository.Get(id);
+		}
+	 
+		public IEnumerable<Homework> GetHomeworks() 
+		{
+			return  homeworksRepository.GetAll();
+		}
+
+	
+		public  void  Dispose()
+		{
+			//TODO: ¿Por qué implementamos esto? ¿Cuándo se usa?
+			homeworksRepository.Dispose();
+		}
+	}
 }
-
-  
-
-public  Homework  Create(Homework  homework) {
-
-  
-
-//1
-
-  
-
-homeworksRepository.Add(homework);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-return  homework;
-
-  
-
-}
-
-  
-
-public  void  Remove(Guid  id) {
-
-  
-
-//2
-
-  
-
-Homework  homework = homeworksRepository.Get(id);
-
-  
-
-if (homework == null) {
-
-  
-
-//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
-
-  
-
-throw  new  ArgumentException("Invalid guid");
-
-  
-
-}
-
-  
-
-homeworksRepository.Remove(homework);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-}
-
-  
-
-  
-
-public  Exercise  AddExercise(Guid  id, Exercise  exercise)
-
-  
-
-{
-
-  
-
-Homework  homework = homeworksRepository.Get(id);
-
-  
-
-if (homework == null) {
-
-  
-
-//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
-
-  
-
-throw  new  ArgumentException("Invalid guid");
-
-  
-
-}
-
-  
-
-homework.Exercises.Add(exercise);
-
-  
-
-homeworksRepository.Update(homework);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-return  exercise;
-
-  
-
-}
-
-  
-
-  
-
-  
-
-public  Homework  Update(Guid  id, Homework  homework) {
-
-  
-
-//3
-
-  
-
-Homework  homeworkToUpdate = homeworksRepository.Get(id);
-
-  
-
-if (homeworkToUpdate == null) {
-
-  
-
-//TODO: ¿Se pueden manejar mejor los mensaje de las excepciones?
-
-  
-
-throw  new  ArgumentException("Invalid guid");
-
-  
-
-}
-
-  
-
-homeworkToUpdate.Description = homework.Description;
-
-  
-
-homeworkToUpdate.DueDate = homework.DueDate;
-
-  
-
-homeworksRepository.Update(homeworkToUpdate);
-
-  
-
-//nunca olvidar esto !
-
-  
-
-homeworksRepository.Save();
-
-  
-
-return  homeworkToUpdate;
-
-  
-
-}
-
-  
-
-  
-
-public  Homework  Get(Guid  id) {
-
-  
-
-//4
-
-  
-
-return  homeworksRepository.Get(id);
-
-  
-
-}
-
-  
-
-  
-
-public  IEnumerable<Homework> GetHomeworks() {
-
-  
-
-return  homeworksRepository.GetAll();
-
-  
-
-}
-
-  
-
-  
-
-public  void  Dispose()
-
-  
-
-{
-
-  
-
-//TODO: ¿Por qué implementamos esto? ¿Cuándo se usa?
-
-  
-
-homeworksRepository.Dispose();
-
-  
-
-}
-
-  
-
-}
-
-  
-
-}
-
 ```
 
   
@@ -1806,322 +898,117 @@ En `Homeworks.WebApi` agregamos lo siguiente a `HomeworksController`  **debe que
 
   
 
-```c#
-
+```csharp
 using  System;
-
-  
-
 using  System.Collections.Generic;
-
-  
-
 using  Microsoft.AspNetCore.Mvc;
-
-  
-
 using  Homeworks.BusinessLogic;
-
-  
-
 using  Homeworks.Domain;
-
-  
-
-  
-
 namespace  Homeworks.WebApi.Controllers
-
-  
-
 {
-
-  
-
-[Route("api/[controller]")]
-
-  
-
-[ApiController]
-
-  
-
-public  class  HomeworksController: ControllerBase, IDisposable
-
-  
-
-{
-
-  
-
-private  HomeworksLogic  homeworksLogic;
-
-  
-
-public  HomeworksController() {
-
-  
-
-homeworksLogic = new  HomeworksLogic();
-
-  
-
-}
-
-  
-
-[HttpGet]
-
-  
-
-public  ActionResult  Get()
-
-  
-
-{// GET api/homeworks
-
-  
-
-IEnumerable<Homework> homeworks = homeworksLogic.GetHomeworks();
-
-  
-
-return  Ok(homeworks);
-
-  
-
-}
-
-  
-
-[HttpGet("{id}", Name = "Get")]
-
-  
-
-// /api/homeworks/{id}
-
-  
-
-public  IActionResult  Get(Guid  id)
-
-  
-
-{
-
-  
-
-Homework  homeWorktoGet=null;
-
-  
-
-try {
-
-  
-
-homeWorktoGet = homeworksLogic.Get(id);
-
-  
-
-}
-
-  
-
-catch (Exception  e){
-
-  
-
-//TODO: Log the problem
-
-  
-
-}
-
-  
-
-if (homeWorktoGet == null) {
-
-  
-
-//TODO: Manejar de forma choerente los códigos
-
-  
-
-return  NotFound();
-
-  
-
-}
-
-  
-
-return  Ok(homeWorktoGet);
-
-  
-
-}
-
-  
-
-[HttpPost]
-
-  
-
-public  IActionResult  Post([FromBody] Homework  homework)
-
-  
-
-{
-
-  
-
-try {
-
-  
-
-Homework  createdHomework = homeworksLogic.Create(homework);
-
-  
-
-return  CreatedAtRoute("Get", new { id = homework.Id }, createdHomework);
-
-  
-
-} catch(ArgumentException  e) {
-
-  
-
-return  BadRequest(e.Message);
-
-  
-
-}
-
-  
-
-}
-
-  
-
-[HttpPost("{id}/Exercises", Name = "AddExercise")]
-
-  
-
-public  IActionResult  PostExercise(Guid  id, [FromBody] Exercise  exercise)
-
-  
-
-{
-
-  
-
-Exercise  createdExercise = homeworksLogic.AddExercise(id, exercise);
-
-  
-
-if (createdExercise == null) {
-
-  
-
-return  BadRequest();
-
-  
-
-}
-
-  
-
-return  CreatedAtRoute("GetExercise", new { id = createdExercise.Id }, createdExercise);
-
-  
-
-}
-
-  
-
-[HttpPut("{id}")]
-
-  
-
-public  IActionResult  Put(Guid  id, [FromBody] Homework  homework)
-
-  
-
-{
-
-  
-
-try {
-
-  
-
-Homework  updatedHomework = homeworksLogic.Update(id, homework);
-
-  
-
-return  CreatedAtRoute("Get", new { id = homework.Id }, updatedHomework);
-
-  
-
-} catch(ArgumentException  e) {
-
-  
-
-return  BadRequest(e.Message);
-
-  
-
-}
-
-  
-
-}
-
-  
-
-[HttpDelete("{id}")]
-
-  
-
-public  IActionResult  Delete(Guid  id)
-
-  
-
-{
-
-  
-
-homeworksLogic.Remove(id);
-
-  
-
-return  NoContent();
-
-  
-
-}
-
-  
-
-public  void  Dispose()
-
-  
-
-{
-
-  
-
-homeworksLogic.Dispose();
-
-  
-
-}
-
-  
-
-}
-
-  
-
+	[Route("api/[controller]")]
+	[ApiController]
+	public  class  HomeworksController: ControllerBase, IDisposable
+	{
+		private  HomeworksLogic  homeworksLogic;
+		
+		public  HomeworksController() 
+		{
+			homeworksLogic = new  HomeworksLogic();
+		}
+		
+		[HttpGet]
+		// GET api/homeworks
+		public  ActionResult  Get()
+		{
+			IEnumerable<Homework> homeworks = homeworksLogic.GetHomeworks();
+			
+			return  Ok(homeworks);
+		}
+
+  
+
+		// /api/homeworks/{id}
+		[HttpGet("{id}", Name = "Get")]
+		public  IActionResult  Get(Guid  id)
+		{
+		  Homework  homeWorktoGet=null;
+			try {
+				homeWorktoGet = homeworksLogic.Get(id);
+			}
+			catch (Exception  e)
+			{
+			  //TODO: Log the problem
+			}
+	
+			if (homeWorktoGet == null) 
+			{
+			  //TODO: Manejar de forma choerente los códigos
+				return  NotFound();
+			}
+
+			return  Ok(homeWorktoGet);
+		}
+		
+		[HttpPost]
+		public  IActionResult  Post([FromBody] Homework  homework)
+		{
+			try 
+			{
+				Homework  createdHomework = homeworksLogic.Create(homework);
+				return  CreatedAtRoute("Get", new { id = homework.Id }, createdHomework);
+			} 
+			catch(ArgumentException  e) 
+			{
+				return  BadRequest(e.Message);
+			}
+		}
+
+  
+
+		[HttpPost("{id}/Exercises", Name = "AddExercise")]
+		public  IActionResult  PostExercise(Guid  id, [FromBody] Exercise  exercise)
+		{
+			Exercise  createdExercise = homeworksLogic.AddExercise(id, exercise);
+			
+			if (createdExercise == null) 
+			{
+				return  BadRequest();
+			}
+			
+			return  CreatedAtRoute("GetExercise", new { id = createdExercise.Id }, createdExercise);
+		}
+
+		[HttpPut("{id}")]
+		public  IActionResult  Put(Guid  id, [FromBody] Homework  homework)
+		{
+			try 
+			{
+				Homework  updatedHomework = homeworksLogic.Update(id, homework);
+				
+				return  CreatedAtRoute("Get", new { id = homework.Id }, updatedHomework);
+			
+			} 
+			catch(ArgumentException  e) 
+			{
+				return  BadRequest(e.Message);
+			}
+		}
+
+		[HttpDelete("{id}")]
+		public  IActionResult  Delete(Guid  id)
+		{
+			homeworksLogic.Remove(id);
+			return  NoContent();
+		}
+
+	  
+
+		public  void  Dispose()
+		{
+			homeworksLogic.Dispose();
+		}
+	}
 }
 
 ```
@@ -2169,21 +1056,9 @@ Ahora lo pueden probar. Lo pueden probar con Postman, o con la herramienta que m
   
 
 {
-
-  
-
 "dueDate": "2020-03-15T17:16:40",
-
-  
-
 "description": "a description",
-
-  
-
 "exercises": []
-
-  
-
 }
 
   
