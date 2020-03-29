@@ -121,7 +121,9 @@ namespace Moodle.BusinessLogic.Test
 Luego de correrlos nuevamente, podemos ver como el test falla:
 
 ![enter image description here](https://github.com/ORT-DA2/TECNOLOGIA-2020.1/blob/master/Imagenes/Clase%20Testing/NoPasa.PNG)
+
 Y hasta se muestra la razon de porque fallo inline:
+
 
 ![Inline explanation](https://github.com/ORT-DA2/TECNOLOGIA-2020.1/blob/master/Imagenes/Clase%20Testing/Esperable.png)
 ## [](https://github.com/fedeojeda95/N6A-AN-DA2-2019.1-Clases/blob/master/Clases/Clase%204%20-%20Testing.md#test-coverage)Test coverage
