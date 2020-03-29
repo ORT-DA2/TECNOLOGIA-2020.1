@@ -19,12 +19,13 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 *  **Windows:**: La mejor opcion es SQL Server Management Studio. Es la GUI mas completa para interactuar con estas bases de datos. Solo disponible para windows. [Link](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
 *  **MacOS/Linux**: Existen otras opciones. La mejor es [Azure Data Studio](https://github.com/Microsoft/azuredatastudio), herramienta open source de microsoft disponible para todas las plataformas (Windows, MacOS, Linux. Tambien se encuentra [DBeaver](https://dbeaver.io/)
 
-<!---
 ## Videos
 
 * [Codificando Moodle.DataAccess](https://youtu.be/-YvfMrF507A)]
+<!---
 * [Conectando los paquetes entre ellos](https://youtu.be/Qm43annwFn4)
 -->
+* [Lazy loading](https://youtu.be/RfCfzV3GHoQ)
 
 ## Paquetes Necesarios para trabajar
 

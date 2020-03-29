@@ -1,5 +1,5 @@
 ﻿
-# Clase 5 - Testing
+# Clase 4 - Testing
 
 Como toda plataforma, el testing es una parte esencial del desarrollo del software. En particular en este caso, hablaremos sobre el unit testing en .NET Core.
 
