@@ -17,7 +17,7 @@ Se organiza así:
 
 Los docentes somos:
 
-- Santiago Ménndez (santiagomendezvarela@outlook.com)
+- Santiago Méndez (santiagomendezvarela@outlook.com)
 - Sebastián Uriarte (sebastian.uriarteg@gmail.com) 
 - Nicolas Fierro (nicofierro94@gmail.com)
 - Daniel Acevedo (daniel18acevedo@gmail.com)

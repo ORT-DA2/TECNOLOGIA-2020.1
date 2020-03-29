@@ -32,6 +32,7 @@ No, no es necesario. Sin embargo, tener una trae varias utilidades:
 -   Aunque no usemos VS2019, tener una solucion permite crear/compilar/manejar todos los proyectos involucrados juntos, sin tener que correr cada uno, por ejemplo. Se maneja todo como una unica unidad.
 
 Para mas informacion, se puede leer  [aquí](https://stackoverflow.com/questions/42730877/net-core-when-to-use-dotnet-new-sln)
+
 ## [Creacion de proyecto HomeworkWebApi](https://youtu.be/JrOLycQE_5Y)
 
 A continuación crearemos un proyecto de ejemplo, sobre el cual seguiremos trabajando y seguiremos agregandole funcionalidad.

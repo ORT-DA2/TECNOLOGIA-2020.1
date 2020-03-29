@@ -59,6 +59,159 @@ Logramos resolver lo que antes habíamos descrito como desventajas o problemas.
 4. Permite NO Violar SRP. Permite que sea más fácil romper la funcionalidad coherente en cada interfaz. Ahora nuestra lógica de creación de objetos no va a estar relacionada a la lógica de cada módulo. Cada módulo solo usa sus dependencias, no se encarga de inicializarlas ni conocer cada una de forma particular.
 5. Permite NO Violar OCP. Por todo lo anterior, nuestro código es abierto a la extensión y cerrado a la modificación. El acoplamiento entre módulos o clases es  siempre a nivel de interfaz.
 
+## WebApi
+
+Incorporando Inyección de dependencias en nuestra WebApi, para lograrlo debemos remover todos los constructores sin parámetros y agregar nuevos que reciban las dependencias que queremos que sean inyectadas.
+
+### DataAccess: EJEMPLO
+
+```csharp
+public class HomeworkRepository
+{
+    public HomeworkRepository(DbContext context)
+    {
+        Context = context;
+    }
+
+    // RESTO DEL CODIGO
+}
+```
+
+### BusinessLogic: EJEMPLO
+
+```csharp
+public class HomeworkLogic
+{
+    private readonly HomeworkRepository repositoryHome;
+
+    public HomeworkLogic(HomeworkRepository homeworks)
+    {
+        repositoryHome = homeworks;
+    }
+
+    // RESTO DEL CODIGO
+}
+```
+
+### WebApi Controller: EJEMPLO
+
+```csharp
+[ApiController]
+[Route("api/[controller]")]
+public class HomeworksController : ControllerBase
+{
+    private readonly HomeworkLogic homeworks;
+
+    public HomeworksController(HomeworkLogic homeworks) : base()
+    {
+        this.homeworks = homeworks;
+    }
+
+    // RESTO DEL CODIGO
+}
+```
+
+## WebApi: Startup
+
+Por ultimo hay que decirle a la wab api como crear y que servicios crear para inyectar en nuestros controllers. 
+Por ejemplo:
+* Para instanciar el HomeworksController cuando alguien le solicite una request va a tener que pasar le un objeto de tipo HomeworkLogic por parámetro.
+* Y a su vez para instanciar un HomeworkLogic tiene que instanciar un HomeworkRepository.
+* Pero para instanciar el HomeworkRepository necesita instanciar un HomeworkContext.
+
+P: ¿Entonces como le indicamos que servicios instanciar?
+
+R: Se lo indicamos a traves del startup le decimos que servicios tiene esta disponibles para instanciar.
+
+Para nuestro ejemplo de Homeworks:
+
+```csharp
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    // EN ESTE MÉTODO SE REGISTRAN LOS SERVICIOS
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllers();
+        // REGISTRO EL CONTEXTO
+        services.AddDbContext<DbContext, HomeworksContext>(
+            o => o.UseSqlServer(Configuration.GetConnectionString("HomeworksDB"))
+        );
+        // REGISTRO EL REPOSITORIO Y SU LÓGICA
+        services.AddScoped<HomeworkLogic, HomeworkLogic>();
+        services.AddScoped<HomeworkRepository, HomeworkRepository>();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        app.UseHttpsRedirection();
+        app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
+    }
+}
+```
+
+### Explicación
+
+* **REGISTRO EL REPOSITORIO Y SU LÓGICA**: ```services.AddScoped<Interfaz, Servicio>()```, este lo que haces es registra un servicio de tipo ```Servicio``` y lo va a instanciar e inyectar cuando alguien necesite una interfaz de tipo ```Interfaz```.
+
+* **REGISTRO EL CONTEXTO**: El DbContext se registra de una manera especial, utilizando el siguiente método:
+```csharp
+// Le indicamos que Contexto (DbContexto) va a inyectar para cada interfaz (DbInterfaz)
+services.AddDbContext<DbInterfaz, DbContexto>(
+    // Configuración del contexto se hace aqui
+    // En particular le vamos a indicar que bd vamos a usar en este caso
+    // SqlServer y cual es el ConnectionString que va a usar.
+    // en este caso el connection string va a estar en un archivo de 
+    // configuración llamado appsettings.json
+    o => o.UseSqlServer(Configuration.GetConnectionString("REFERENCIA_AL_ARCHIVO_DE_CONFIGURACIÓN"))
+);
+```
+
+Explicacion del ejemplo:
+
+```csharp
+// En este caso le indicamos que cuando vea la interfaz DbContext para inyectar que instancie e inyecte el contexto: HomeworksContext
+services.AddDbContext<DbContext, HomeworksContext>(
+    // Por ultimo le indicamos que la BD va a ser MSSQL y que el
+    // ConnectionString lo va a extraer de una archivo de configuración (appsettings.json) y que tome el valor de la key "HomeworksDB"
+    o => o.UseSqlServer(Configuration.GetConnectionString("HomeworksDB"))
+);
+```
+
+Archivo de configuración del ejemplo (appsettings.json):
+
+```json
+{
+  "ConnectionStrings": {
+    "HomeworksDB": "Server=.\\SQLEXPRESS;Database=HomeworksDB;Trusted_Connection=True;MultipleActiveResultSets=True;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+
+```
+
+Este archivo de configuración se encuentra dentro del proyecto WebApi y es generado por defecto cuando se crea un tipo de proyecto WebApi.
+
 ## Inyección de Dependencias en Nuestra WebApi
 
 * [**DI y Startup (IMPORTANTE)**](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
