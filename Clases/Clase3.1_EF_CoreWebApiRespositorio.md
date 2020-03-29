@@ -52,6 +52,7 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 
  * [Codificando Moodle.DataAccess](https://youtu.be/-YvfMrF507A)
  * [Conectando los paquetes entre ellos](https://youtu.be/Qm43annwFn4)
+ * [Lazy loading](https://youtu.be/RfCfzV3GHoQ)
 
 
   
