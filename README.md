@@ -27,7 +27,7 @@ Los docentes somos:
 
 El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA (Single Page Application) en Angular para trabajar con ese servidor. Haremos énfasis en las buenas prácticas de codificación y diseño de software desarrolladas a lo largo del curso DA2 y anteriores. ¡Acá se usa todo!
 
-## Parte1: .Net Core WebApi
+## Parte 1: .Net Core WebApi
 
 - Clase 1 - [Introducción temática](/Clases/Clase1.1_Intro_StackTecnolog%C3%ADas.md) y [.NetCore](/Clases/Clase1.2_NetCore.md)
 
@@ -43,4 +43,8 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 7 - Deploy de la solución en IIS.
 
-## Parte2: Single Pages Applications y Angular
+## Parte 2: Single Pages Applications y Angular
+
+## Extra / Material Adicional:
+
+- [JSON (Intro y ¿Qué es realmente JSON?)](https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON)
