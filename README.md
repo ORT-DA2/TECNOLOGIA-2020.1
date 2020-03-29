@@ -39,7 +39,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 5 - Mejoras del proyecto (DTO's y Repository), Filters, Postman.
 
-- Clase 6 - Reflection e Iyección de dependencias.
+- Clase 6 - Reflection
 
 - Clase 7 - Deploy de la solución en IIS.
 
