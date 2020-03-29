@@ -22,9 +22,9 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 ## Videos
 
 * [Codificando Moodle.DataAccess](https://youtu.be/-YvfMrF507A)
-<!---
-* [Conectando los paquetes entre ellos](https://youtu.be/Qm43annwFn4)
--->
+
+* [Conectando los paquetes entre ellos](https://youtu.be/Qm43annwFn4)(No implementar ni prestar atencion a la parte de IDisposable)
+
 * [Lazy loading](https://youtu.be/RfCfzV3GHoQ)
 
 * [Mostrando resultados en sql server](https://youtu.be/uKKUbtUv698)
