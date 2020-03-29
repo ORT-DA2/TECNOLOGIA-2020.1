@@ -27,7 +27,7 @@ Es posible acceder a ese código base, a partir del cual se creará este ejemplo
 -->
 * [Lazy loading](https://youtu.be/RfCfzV3GHoQ)
 
-*[Mostrando resultados en sql server](https://youtu.be/uKKUbtUv698)
+* [Mostrando resultados en sql server](https://youtu.be/uKKUbtUv698)
 
 ## Paquetes Necesarios para trabajar
 
