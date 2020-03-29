@@ -35,7 +35,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 3 - [Entity Framework Core](/Clases/Clase3.1_EF_CoreWebApiRespositorio.md) e [Inyección de Dependencias](/Clases/Clase3.2_InyeccionDependencias.md)
 
-- Clase 4 - Testing
+- Clase 4 - [Testing](/Clases/Clase4.1_Testing) y Mocking
 
 - Clase 5 - Mejoras del proyecto (DTO's y Repository), Filters, Postman.
 
