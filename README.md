@@ -48,3 +48,4 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 ## Extra / Material Adicional:
 
 - [JSON (Intro y ¿Qué es realmente JSON?)](https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON)
+- Excepciones
