@@ -1,0 +1,351 @@
+{
+  "Ej.DA.dll": {
+    "C:\\Users\\nicof\\Desktop\\Clases ORT\\DA2\\S2-2020\\Ejemplo\\Ej.DA\\EjContext.cs": {
+      "Ej.DA.EjContext": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<Ej.Domain.Person> Ej.DA.EjContext::get_Persons()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Void Ej.DA.EjContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions)": {
+          "Lines": {
+            "10": 8,
+            "11": 8,
+            "13": 8
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nicof\\Desktop\\Clases ORT\\DA2\\S2-2020\\Ejemplo\\Ej.DA\\PersonManagerDA.cs": {
+      "Ej.DA.PersonManagerDA": {
+        "Microsoft.EntityFrameworkCore.DbContext Ej.DA.PersonManagerDA::get_Context()": {
+          "Lines": {
+            "12": 24
+          },
+          "Branches": []
+        },
+        "System.Void Ej.DA.PersonManagerDA::Add(Ej.Domain.Person)": {
+          "Lines": {
+            "18": 1,
+            "19": 1,
+            "20": 1
+          },
+          "Branches": []
+        },
+        "System.Void Ej.DA.PersonManagerDA::Remove(System.Int32)": {
+          "Lines": {
+            "23": 2,
+            "24": 2,
+            "25": 3,
+            "26": 1,
+            "27": 1
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 25,
+              "Offset": 15,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void Ej.DA.PersonManagerDA::Update(Ej.Domain.Person)": {
+          "Lines": {
+            "30": 2,
+            "31": 2,
+            "32": 3,
+            "33": 1,
+            "34": 1
+          },
+          "Branches": [
+            {
+              "Line": 32,
+              "Offset": 147,
+              "EndOffset": 149,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 32,
+              "Offset": 147,
+              "EndOffset": 174,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<Ej.Domain.Person> Ej.DA.PersonManagerDA::GetAll()": {
+          "Lines": {
+            "37": 3,
+            "38": 3,
+            "39": 3
+          },
+          "Branches": []
+        },
+        "Ej.Domain.Person Ej.DA.PersonManagerDA::Get(System.Int32)": {
+          "Lines": {
+            "42": 5,
+            "43": 5,
+            "44": 5
+          },
+          "Branches": []
+        },
+        "System.Void Ej.DA.PersonManagerDA::Save()": {
+          "Lines": {
+            "47": 3,
+            "48": 3,
+            "49": 3
+          },
+          "Branches": []
+        },
+        "System.Void Ej.DA.PersonManagerDA::.ctor(Microsoft.EntityFrameworkCore.DbContext)": {
+          "Lines": {
+            "13": 8,
+            "14": 8,
+            "15": 8,
+            "16": 8
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nicof\\Desktop\\Clases ORT\\DA2\\S2-2020\\Ejemplo\\Ej.DA\\Migrations\\20200413025714_Creacion.cs": {
+      "Ej.DA.Migrations.Creacion": {
+        "System.Void Ej.DA.Migrations.Creacion::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Void Ej.DA.Migrations.Creacion::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nicof\\Desktop\\Clases ORT\\DA2\\S2-2020\\Ejemplo\\Ej.DA\\Migrations\\20200413025714_Creacion.Designer.cs": {
+      "Ej.DA.Migrations.Creacion": {
+        "System.Void Ej.DA.Migrations.Creacion::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "16": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "47": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nicof\\Desktop\\Clases ORT\\DA2\\S2-2020\\Ejemplo\\Ej.DA\\Migrations\\EjContextModelSnapshot.cs": {
+      "Ej.DA.Migrations.EjContextModelSnapshot": {
+        "System.Void Ej.DA.Migrations.EjContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "14": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "45": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Ej.DA.Interface.dll": {},
+  "Ej.Domain.dll": {
+    "C:\\Users\\nicof\\Desktop\\Clases ORT\\DA2\\S2-2020\\Ejemplo\\Ej.Domain\\Person.cs": {
+      "Ej.Domain.Person": {
+        "System.Int32 Ej.Domain.Person::get_Id()": {
+          "Lines": {
+            "7": 8
+          },
+          "Branches": []
+        },
+        "System.String Ej.Domain.Person::get_Name()": {
+          "Lines": {
+            "8": 16
+          },
+          "Branches": []
+        },
+        "System.String Ej.Domain.Person::get_Surname()": {
+          "Lines": {
+            "9": 14
+          },
+          "Branches": []
+        },
+        "System.String Ej.Domain.Person::get_Phone()": {
+          "Lines": {
+            "10": 14
+          },
+          "Branches": []
+        },
+        "System.String Ej.Domain.Person::get_Email()": {
+          "Lines": {
+            "11": 14
+          },
+          "Branches": []
+        },
+        "System.Void Ej.Domain.Person::.ctor()": {
+          "Lines": {
+            "12": 7,
+            "13": 7,
+            "14": 7,
+            "15": 0,
+            "16": 0,
+            "18": 7
+          },
+          "Branches": [
+            {
+              "Line": 14,
+              "Offset": 24,
+              "EndOffset": 26,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 7
+            },
+            {
+              "Line": 14,
+              "Offset": 42,
+              "EndOffset": 44,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 7
+            },
+            {
+              "Line": 14,
+              "Offset": 60,
+              "EndOffset": 62,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 7
+            },
+            {
+              "Line": 14,
+              "Offset": 24,
+              "EndOffset": 80,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 14,
+              "Offset": 42,
+              "EndOffset": 80,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 14,
+              "Offset": 60,
+              "EndOffset": 80,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 14,
+              "Offset": 83,
+              "EndOffset": 85,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 14,
+              "Offset": 83,
+              "EndOffset": 97,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 7
+            }
+          ]
+        }
+      }
+    }
+  }
+}
