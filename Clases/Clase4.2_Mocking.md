@@ -10,13 +10,13 @@ Los mocks son unos de los varios "test doubles" (es decir, objetos que no son re
 Antes de hacer énfasis en tal diferencia, es importante aclarar que nos referiremos a la sección del sistema a probar como SUT (_System under test_). Los Mocks, nos permiten verificar la interacción del SUT con sus dependencias. Los Stubs, nos permiten verificar el estado de los objetos que se pasan. Como queremos testear el comportamiento de nuestro código, utilizaremos los primeros.
 
 ## Tipos de  _Test Doubles_
-|Tipo|Descripcion  |
-|--|--|
-|  **Dummy**| Son objetos que se pasan, pero nunca se usan. Por lo general, solo se utilizan para llenar listas de parametros que tenemos que pasar si o si.  |
-|**Fake** | Son objetos funcionales, pero generalmente toman algún atajo que los hace inadecuados para la producción (una base de datos en la memoria es un buen ejemplo).
-| **Stubs** | Son Stubs pero que también registran cierta información cuando son invocados.
-|**Spies**| Son Stubs pero que también registran cierta información cuando son invocados.
-|**Mocks** | Son objetos pre-programados con expectativas (son las llamadas que se espera que reciban). De todos estos objetos, los Mocks son los unicos que verifican el comportamiento. Los otros, solo verifican el estado.
+Tipo | Descripción
+------------ | -------------
+**Dummy** | Son objetos se pasan, pero nunca se usan. Por lo general, solo se utilizan para llenar listas de parámetros.
+**Fake** | Son objetos funcionales, pero generalmente toman algún atajo que los hace inadecuados para la producción (una base de datos en la memoria es un buen ejemplo).
+**Stubs** | Brindan respuestas predefinidas a las llamadas realizadas en el test, por lo general no responden a nada que no se use en el test.
+**Spies** | Son Stubs pero que también registran cierta información cuando son invocados.
+**Mocks** | Son objetos pre-programados con expetativas (son las llamadas que se espera que reciban), de todos estos objetos Mocks son los unicos que verifican el comportamiento. Los otros, solo verifican el estado.
 
 
 
