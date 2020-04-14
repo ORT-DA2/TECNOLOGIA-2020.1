@@ -33,21 +33,23 @@ Hay ciertos casos en los que incluso los mocks son realmente la forma más adecu
 
 Para poder hacer hacer mocks de las dependencias de un objeto que buscamos testear, es necesario cambiar el codigo que tenemos actualmente. Primero, analizaremos como es que se definen las dependencias en nuestro codigo. Tomemos una clase llamada  _StudentLogic_  que estaría  `Moodle.BusinessLogic`. Esta clase depende de  _StudentRepository_  de  `Moodle.DataAccess`. Como definimos esta dependencia? Simplemente en el constructor de  _StudentLogic_  creamos una nueva instancia.
 
+```csharp
     private StudentRepository repository;
 
     public StudentLogic() {
         repository = new StudentRepository();
     }
-
+```
+    
 El problema que tiene este enfoque es que cuando creamos una instancia de  _StudentLogic_, se creara una instancia  **real**  de  _StudentRepository_, y no podremos inyectarle un instancia mockeada del repository. La solución (por ahora) es agregar otro constructor que reciba el  _StudentRepository_. Sin embargo, esto no es suficiente: ya que no debemos recibir por parametro una instancia real del repositorio. Debemos crear una interfaz, la cual el repositorio implemente.
 
 ```csharp
- private IStudentRepository repository;
+private IStudentRepository repository;
 
 public StudentLogic(IStudentRepository repository = null) 
 {
-	if (repository == null) 
-	{
+    if (repository == null) 
+    {
 	    this.repository = new StudentRepository();
     } 
     else 
@@ -95,6 +97,7 @@ Una vez que estos pasos estén prontos, podemos comenzar a realizar nuestro prim
 
 ## Probando el POST
 
+```csharp
 [TestClass]
 public class StudentControllerTests
 {
@@ -109,6 +112,7 @@ public class StudentControllerTests
     }
 
 }
+```
 
 Para ello seguiremos la metodología  **AAA: Arrange, Act, Assert**.
 
@@ -120,8 +124,8 @@ Para ello seguiremos la metodología  **AAA: Arrange, Act, Assert**.
 [TestMethod]
 public void CreateValidStudentOkTest()
 {
-    Student student = new Student()
-    {
+	Student student = new Student()
+	{
 	    Name = "Daniel",
 	    StudentNumber = "123456",
 	    Courses = new List<Course>()
@@ -132,11 +136,11 @@ public void CreateValidStudentOkTest()
 			    Name = "DA2"
 		    }
 	    }
-    };//1
+	};//1
 	
 	ModelStudent modelStudent = new ModelStudent()
 	{
-		Name = "Daniel",
+	    Name = "Daniel",
 	    StudentNumber = "123456",
 	    Courses = new List<ModelCourseBasicInfo>()
 	    {
@@ -147,14 +151,14 @@ public void CreateValidStudentOkTest()
 		    }
 	    }
 	}
-    var mock = new Mock<IStudentLogic>(MockBehavior.Strict); // 2
-    var controller = new StudentController(mock.Object);//3
+	var mock = new Mock<IStudentLogic>(MockBehavior.Strict); // 2
+	var controller = new StudentController(mock.Object);//3
 
-    var result = controller.Post(modelStudent); // 4
-    var createdResult = result as CreatedAtRouteResult; // 5
-    var model = createdResult.Value as ModelStudentDetailInfo; // 6
+	var result = controller.Post(modelStudent); // 4
+	var createdResult = result as CreatedAtRouteResult; // 5
+	var model = createdResult.Value as ModelStudentDetailInfo; // 6
 
-    //Assert
+	//Assert
 }
 ```
 Veremos que pasa en el test:
