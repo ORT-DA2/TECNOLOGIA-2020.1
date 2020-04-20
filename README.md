@@ -17,7 +17,7 @@ Se organiza así:
 
 Los docentes somos:
 
-- Santiago Ménndez (santiagomendezvarela@outlook.com)
+- Santiago Méndez (santiagomendezvarela@outlook.com)
 - Sebastián Uriarte (sebastian.uriarteg@gmail.com) 
 - Nicolas Fierro (nicofierro94@gmail.com)
 - Daniel Acevedo (daniel18acevedo@gmail.com)
@@ -31,11 +31,11 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 1 - [Introducción temática](/Clases/Clase1.1_Intro_StackTecnolog%C3%ADas.md) y [.NetCore](/Clases/Clase1.2_NetCore.md)
 
-- Clase 2 - [WebApi](/Clases/Clase2.1_WebApi.md) y [creación de WebApi](/Clases/Clase2.2_Creacion.md)
+- Clase 2 - [WebApi](/Clases/Clase2.1_WebApi.md) y [Creación de WebApi](/Clases/Clase2.2_Creacion.md)
 
 - Clase 3 - [Entity Framework Core](/Clases/Clase3.1_EF_CoreWebApiRespositorio.md) e [Inyección de Dependencias](/Clases/Clase3.2_InyeccionDependencias.md)
 
-- Clase 4 - [Testing](/Clases/Clase4.1_Testing.md) y Mocking
+- Clase 4 - [Testing](/Clases/Clase4.1_Testing.md) y [Mocking](/Clases/Clase4.2_Mocking.md)
 
 - Clase 5 - Mejoras del proyecto (DTO's y Repository), Filters, Postman.
 

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Homeworks.Domain;
 using Homeworks.DataAccess;
 
 namespace Homeworks.BusinessLogic
 {
-    public class HomeworksLogic: IDisposable
+    public class HomeworksLogic
     {
         private HomeworksRepository homeworksRepository;
 
@@ -22,7 +21,8 @@ namespace Homeworks.BusinessLogic
             homeworksRepository.Save();
             return homework;
         }
-              public void Remove(Guid id) {
+        
+        public void Remove(Guid id) {
             //2
             Homework homework = homeworksRepository.Get(id);
             if (homework == null) {
@@ -48,8 +48,6 @@ namespace Homeworks.BusinessLogic
             return exercise;
         }
 
-  
-
         public Homework Update(Guid id, Homework homework) {
             //3
             Homework homeworkToUpdate = homeworksRepository.Get(id);
@@ -74,10 +72,5 @@ namespace Homeworks.BusinessLogic
             return homeworksRepository.GetAll();
         }
 
-    public void Dispose()
-    {
-        //TODO: ¿Por qué implementamos esto? ¿Cuándo se usa?
-      homeworksRepository.Dispose();
     }
-  }
 }

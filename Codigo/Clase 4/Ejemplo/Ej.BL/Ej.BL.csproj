@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ej.BL.Interface\Ej.BL.Interface.csproj" />
+    <ProjectReference Include="..\Ej.DA.Interface\Ej.DA.Interface.csproj" />
+    <ProjectReference Include="..\Ej.Domain\Ej.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

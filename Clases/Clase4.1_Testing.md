@@ -1,5 +1,5 @@
 ﻿
-# Clase 5 - Testing
+# Clase 4 - Testing
 
 Como toda plataforma, el testing es una parte esencial del desarrollo del software. En particular en este caso, hablaremos sobre el unit testing en .NET Core.
 
@@ -153,7 +153,7 @@ using  Moodle.Domain;
 
 namespace  Moodle.BusinessLogic
 {
-	public  class  StudentLogic : IDisposable
+	public  class  StudentLogic
 	{
 		private  readonly  StudentRepository  studentRepository;
 
@@ -182,11 +182,7 @@ namespace  Moodle.BusinessLogic
 			this.studentRepository.Add(student);
 			this.studentRepository.Save();
 		}
-
-		public  void  Dispose()
-		{
-			this.studentRepository.Dispose();
-		}
+		
 	}
 }
 ```

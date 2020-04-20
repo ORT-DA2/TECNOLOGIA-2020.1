@@ -58,5 +58,3 @@ A nivel teórico y tecnológico todo lo que se dio en Diseño de Aplicaciones 1 
 -  Se necesita tener claro el concepto de ORM y lo visto para Entity Framework. En particular vamos a usar [EF Core](https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx), si no se acuerdan o no conocen, pueden ir probando. Igual a lo largo del semestre vamos a ir introduciendolo
 - Conocimientos adquiridos en asignaturas de Ingeniería de Software tales como elaborar documentación, tener una organización mínima en el proyecto, etc.
 - Buen manejo de Git. El manejo de git y de gitflow es importante durante el curso. Como se utilizara Github, sera necesario aprender como funciona la herramienta. Para repasarlo   [Pro GIT](https://bibliotecas.ort.edu.uy/bibid/80216) (Libro muy completo sobre la funcionalidad de Git. Se encuentra en biblioteca).
-
-

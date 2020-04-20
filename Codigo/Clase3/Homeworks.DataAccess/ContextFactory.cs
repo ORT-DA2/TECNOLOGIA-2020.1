@@ -8,7 +8,7 @@ namespace Homeworks.DataAccess
         MEMORY, SQL
     }
 
-    public class ContextFactory : IDesignTimeDbContextFactory<HomeworksContext>
+    public class ContextFactory
     {
         public HomeworksContext CreateDbContext(string[] args) {
             return GetNewContext();
