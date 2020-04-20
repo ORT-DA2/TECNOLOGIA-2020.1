@@ -2,8 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Moodle.Domain\Moodle.Domain.csproj" />
-    <ProjectReference Include="..\Moodle.BusinessLogic.Interface\Moodle.BusinessLogic.Interface.csproj" />
-    <ProjectReference Include="..\Moodle.DataAccess.Interface\Moodle.DataAccess.Interface.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
