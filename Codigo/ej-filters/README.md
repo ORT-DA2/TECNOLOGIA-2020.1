@@ -1,4 +1,4 @@
-#Filters en NET Core
+# Filters en NET Core
 
 Los filtros o _filters_ nos permiten ejecutar código antes o después de determinadas fases en el procesamiento de una solicitud HTTP. Es decir podes interferir esta solicitud antes o después de que llego a nuestro _Controller_.
 
