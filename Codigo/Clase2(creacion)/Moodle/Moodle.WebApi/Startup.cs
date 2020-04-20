@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Moodle.Factory;
 
 namespace Moodle.WebApi
 {
@@ -26,6 +20,11 @@ namespace Moodle.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.EnableAllCors();
+            services.AddMoodleContext(Configuration.GetConnectionString("MoodleDB"));
+            services.AddStudentLogic();
+            services.AddStudentRepository();
+            services.AddSessionLogic();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

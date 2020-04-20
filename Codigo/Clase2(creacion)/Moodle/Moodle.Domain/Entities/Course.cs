@@ -6,11 +6,11 @@ namespace Moodle.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Student> Students { get; set; }
+        public virtual List<StudentCourse> Students { get; set; }
 
         public Course()
         {
-            this.Students = new List<Student>();
+            this.Students = new List<StudentCourse>();
         }
     }
 }
