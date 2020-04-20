@@ -10,13 +10,13 @@ Los mocks son unos de los varios "test doubles" (es decir, objetos que no son re
 Antes de hacer énfasis en tal diferencia, es importante aclarar que nos referiremos a la sección del sistema a probar como SUT (_System under test_). Los Mocks, nos permiten verificar la interacción del SUT con sus dependencias. Los Stubs, nos permiten verificar el estado de los objetos que se pasan. Como queremos testear el comportamiento de nuestro código, utilizaremos los primeros.
 
 ## Tipos de  _Test Doubles_
-|Tipo|Descripcion  |
-|--|--|
-|  **Dummy**| Son objetos que se pasan, pero nunca se usan. Por lo general, solo se utilizan para llenar listas de parametros que tenemos que pasar si o si.  |
-|**Fake** | Son objetos funcionales, pero generalmente toman algún atajo que los hace inadecuados para la producción (una base de datos en la memoria es un buen ejemplo).
-| **Stubs** | Son Stubs pero que también registran cierta información cuando son invocados.
-|**Spies**| Son Stubs pero que también registran cierta información cuando son invocados.
-|**Mocks** | Son objetos pre-programados con expectativas (son las llamadas que se espera que reciban). De todos estos objetos, los Mocks son los unicos que verifican el comportamiento. Los otros, solo verifican el estado.
+Tipo | Descripción
+------------ | -------------
+**Dummy** | Son objetos se pasan, pero nunca se usan. Por lo general, solo se utilizan para llenar listas de parámetros.
+**Fake** | Son objetos funcionales, pero generalmente toman algún atajo que los hace inadecuados para la producción (una base de datos en la memoria es un buen ejemplo).
+**Stubs** | Brindan respuestas predefinidas a las llamadas realizadas en el test, por lo general no responden a nada que no se use en el test.
+**Spies** | Son Stubs pero que también registran cierta información cuando son invocados.
+**Mocks** | Son objetos pre-programados con expetativas (son las llamadas que se espera que reciban), de todos estos objetos Mocks son los unicos que verifican el comportamiento. Los otros, solo verifican el estado.
 
 
 
@@ -33,21 +33,23 @@ Hay ciertos casos en los que incluso los mocks son realmente la forma más adecu
 
 Para poder hacer hacer mocks de las dependencias de un objeto que buscamos testear, es necesario cambiar el codigo que tenemos actualmente. Primero, analizaremos como es que se definen las dependencias en nuestro codigo. Tomemos una clase llamada  _StudentLogic_  que estaría  `Moodle.BusinessLogic`. Esta clase depende de  _StudentRepository_  de  `Moodle.DataAccess`. Como definimos esta dependencia? Simplemente en el constructor de  _StudentLogic_  creamos una nueva instancia.
 
+```csharp
     private StudentRepository repository;
 
     public StudentLogic() {
         repository = new StudentRepository();
     }
-
+```
+    
 El problema que tiene este enfoque es que cuando creamos una instancia de  _StudentLogic_, se creara una instancia  **real**  de  _StudentRepository_, y no podremos inyectarle un instancia mockeada del repository. La solución (por ahora) es agregar otro constructor que reciba el  _StudentRepository_. Sin embargo, esto no es suficiente: ya que no debemos recibir por parametro una instancia real del repositorio. Debemos crear una interfaz, la cual el repositorio implemente.
 
 ```csharp
- private IStudentRepository repository;
+private IStudentRepository repository;
 
 public StudentLogic(IStudentRepository repository = null) 
 {
-	if (repository == null) 
-	{
+    if (repository == null) 
+    {
 	    this.repository = new StudentRepository();
     } 
     else 
@@ -95,6 +97,7 @@ Una vez que estos pasos estén prontos, podemos comenzar a realizar nuestro prim
 
 ## Probando el POST
 
+```csharp
 [TestClass]
 public class StudentControllerTests
 {
@@ -109,6 +112,7 @@ public class StudentControllerTests
     }
 
 }
+```
 
 Para ello seguiremos la metodología  **AAA: Arrange, Act, Assert**.
 
@@ -120,8 +124,8 @@ Para ello seguiremos la metodología  **AAA: Arrange, Act, Assert**.
 [TestMethod]
 public void CreateValidStudentOkTest()
 {
-    Student student = new Student()
-    {
+	Student student = new Student()
+	{
 	    Name = "Daniel",
 	    StudentNumber = "123456",
 	    Courses = new List<Course>()
@@ -132,11 +136,11 @@ public void CreateValidStudentOkTest()
 			    Name = "DA2"
 		    }
 	    }
-    };//1
+	};//1
 	
 	ModelStudent modelStudent = new ModelStudent()
 	{
-		Name = "Daniel",
+	    Name = "Daniel",
 	    StudentNumber = "123456",
 	    Courses = new List<ModelCourseBasicInfo>()
 	    {
@@ -147,14 +151,14 @@ public void CreateValidStudentOkTest()
 		    }
 	    }
 	}
-    var mock = new Mock<IStudentLogic>(MockBehavior.Strict); // 2
-    var controller = new StudentController(mock.Object);//3
+	var mock = new Mock<IStudentLogic>(MockBehavior.Strict); // 2
+	var controller = new StudentController(mock.Object);//3
 
-    var result = controller.Post(modelStudent); // 4
-    var createdResult = result as CreatedAtRouteResult; // 5
-    var model = createdResult.Value as ModelStudentDetailInfo; // 6
+	var result = controller.Post(modelStudent); // 4
+	var createdResult = result as CreatedAtRouteResult; // 5
+	var model = createdResult.Value as ModelStudentDetailInfo; // 6
 
-    //Assert
+	//Assert
 }
 ```
 Veremos que pasa en el test:
