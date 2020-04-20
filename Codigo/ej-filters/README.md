@@ -20,7 +20,7 @@ Cada tipo de filtro es ejecutado en una fase diferente de la solicitud, es decir
 
 ##### Orden de ejecución de los filtros
 
-![logo](/DiagramaFases.png)
+![logo](DiagramaFases.png)
 
 ---
 
