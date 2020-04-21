@@ -37,7 +37,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 4 - [Testing](/Clases/Clase4.1_Testing.md) y [Mocking](/Clases/Clase4.2_Mocking.md)
 
-- Clase 5 - Mejoras del proyecto (DTO's y Repository), Filters, Postman.
+- Clase 5 - Mejoras del proyecto (DTO's y Repository), [Filters](/Clases/Clase5_Filters.md), Postman.
 
 - Clase 6 - Reflection
 
