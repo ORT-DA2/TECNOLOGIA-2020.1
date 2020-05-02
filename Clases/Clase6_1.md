@@ -76,7 +76,6 @@ Supongamos por ejemplo, que necesitamos que nuestra aplicación soporte diferent
 En este caso, si quisiéramos que nuestra aplicación sea lo más desacoplada posible, de manera que otros loggers puedan ser agregados (o 'plugged in' -de ahí el nombre plugin-) de forma sencilla y SIN RECOMPILAR la aplicación, es necesario elegir la segunda opción.
 
   
-
 Por ejemplo podríamos hacer que el usuario elija (a medida que está usando la aplicación), y descargue la .dll de logger para elegir usarla en la aplicación. La única forma de hacer esto es a partir de Reflection. De esta forma, podemos cargar ensamblados externos a nuestra aplicación, y cargar sus tipos en tiempo de ejecución.
 
   
@@ -86,8 +85,7 @@ Por ejemplo podríamos hacer que el usuario elija (a medida que está usando la 
   
 
 Lo que es importante para lograr el desacoplamiento de tipos externos, es que nuestro código referencie a una Interfaz, que es la que toda .dll externa va a tener que cumplir. Tiene que existir entonces ese contrato previo, de lo contrario, no sería posible saber de antemano qué métodos llamar de las librerías externas que poseen clases para usar loggers.
-
-  
+ 
 
 ## Ejemplo 1 - Teórico
 
@@ -182,9 +180,9 @@ Se desea tener una aplicación que se encargue solo de definir el comportamiento
 
 La idea de la separación de responsabilidades es similar al Ejemplo 1 anterior.
 
-Puede revisar el [Código](www.ort.edu.uy)
+Puede revisar el [Código](https://github.com/ORT-DA2/TECNOLOGIA-2020.1/tree/master/Codigo/Clase6/Reflection)
 
-`Tenga presente que las rutas en UNIX (Linux, macOS) son diferentes a Windows.` 
+`Tenga presente que las rutas en UNIX (Linux, macOS) se representan diferentes a Windows.` 
 
 Se sugiere revisar los métodos:
 
@@ -199,7 +197,7 @@ Diagrama UML del problema
 
 ## Más información
 - [Documentación Reflection Microsoft](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection)
-- 
+- [Sitio con ejemplos](https://www.c-sharpcorner.com/UploadFile/keesari_anjaiah/reflection-in-net/) tener presente que todos los ejemplos están implementados para .Net.
 
 ## Problemas que pueden aparecer
 
