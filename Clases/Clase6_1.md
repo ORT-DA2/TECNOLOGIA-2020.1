@@ -80,11 +80,11 @@ Entonces Marty, quién algo sabía de Reflection porque tenía un primo que ya h
 
 A nivel de clases:
 
-Falta Agregar link a diagrama.
+Diagrama posible de clases:
+![alt text](https://github.com/ORT-DA2/TECNOLOGIA-2020.1/blob/master/Resources/Clase6/UMLClasesReflectionEjemplo1.png)
 
 
 A nivel de paquetes:
 
+![alt text](https://github.com/ORT-DA2/TECNOLOGIA-2020.1/blob/master/Resources/Clase6/UMLPaquetesReflectionEjemplo1.png)
 
-
-Falta Agregar link diagram
