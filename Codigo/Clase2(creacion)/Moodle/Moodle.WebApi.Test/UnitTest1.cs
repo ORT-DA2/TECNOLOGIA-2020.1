@@ -42,13 +42,15 @@ namespace Moodle.WebApi.Test
 
             ActionExecutingContext actionExecutingContext = new ActionExecutingContext(
                 actionContext, 
-                new Mock<IList<IFilterMetadata>>().Object,arguments, 
+                new Mock<IList<IFilterMetadata>>().Object,
+                arguments, 
                 new Mock<object>().Object);
+
             
             AuthenticationFilter filter = new AuthenticationFilter();
             filter.OnActionExecuting(actionExecutingContext);
 
-            Assert.IsTrue(true);
+            Assert.IsNull(actionExecutingContext.Result);
         }
     }
 }
