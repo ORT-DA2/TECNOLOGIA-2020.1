@@ -19,7 +19,7 @@ Los docentes somos:
 
 - Santiago Méndez (santiagomendezvarela@outlook.com)
 - Sebastián Uriarte (sebastian.uriarteg@gmail.com) 
-- Nicolas Fierro (nicofierro94@gmail.com)
+- Nicolás Fierro (nicofierro94@gmail.com)
 - Daniel Acevedo (daniel18acevedo@gmail.com)
 - Andrés Bentos (asbentos@gmail.com)
 
@@ -44,6 +44,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 - Clase 7 - Deploy de la solución en IIS.
 
 ## Parte 2: Single Pages Applications y Angular
+- Clase 8 - [Introducción a SPAs](/Clases/Clase_8_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase_9_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes)
 
 ## Extra / Material Adicional:
 
