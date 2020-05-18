@@ -44,7 +44,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 - Clase 7 - Deploy de la solución en IIS.
 
 ## Parte 2: Single Pages Applications y Angular
-- Clase 8 - [Introducción a SPAs](/Clases/Clase_8_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase_9_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes)
+- Clase 8 - [Introducción a SPAs](/Clases/Clase_8_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase_9_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes.md)
 
 ## Extra / Material Adicional:
 
