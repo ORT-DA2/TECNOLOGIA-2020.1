@@ -1,0 +1,44 @@
+<h2>Lista de nombres</h2>
+
+<ul>
+  <li *ngFor="let name of names" (click)="clickList(name)">
+    {{name}}
+  </li>
+</ul>
+
+<button (click)="clickButton()">
+  No me toques!
+</button>
+
+<ng-container *ngIf="true; then ok; else fail"> </ng-container>
+
+<ng-template #ok>
+  <div>
+    Es true
+  </div>
+</ng-template>
+<ng-template #fail>
+  <div>
+    Es false
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="shows">
+  <p>Hola</p>
+</ng-template>
+<input [(ngModel)]="input">
+
+<p>Valor: {{input}}</p>
+
+<p>
+  Sin pipe: {{text}} <br/>
+  Con pipe: {{text | uppercase}}
+</p>
+<p>
+  Sin pipe: {{text}} <br/>
+  Con pipe: {{text | lowercase}}
+</p>
+<p>
+  Sin pipe: {{title}} <br/>
+  Con pipe: {{title | titlecase}}
+</p>
