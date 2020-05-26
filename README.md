@@ -39,12 +39,15 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 5 - Mejoras del proyecto (DTO's y Repository), [Filters](/Clases/Clase5_Filters.md), Postman.
 
-- Clase 6 - [Reflection](https://github.com/ORT-DA2/TECNOLOGIA-2020.1/blob/master/Clases/Clase6_1.md)
+- Clase 6 - [Reflection](/Clases/Clase6_1.md)
 
 - Clase 7 - Deploy de la solución en IIS.
 
 ## Parte 2: Single Pages Applications y Angular
 - Clase 8 - [Introducción a SPAs](/Clases/Clase_8_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase_9_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes.md)
+
+- [Clase 9 - Componentes, Templates, Directivas, Data Binding y Pipes](/Clases/Clase_10_-_Componentes_Templates,_Bootstrapping,_Directivas_Data_Binding_y_Pipes.md) / [Codigo Angular](/Codigo/Angular)
+- [Clase 9 - Custom Pipes y Service Básico](/Clases/Clase_10_-_Custom_Pipes_y_Service_Basico.md)
 
 ## Extra / Material Adicional:
 
