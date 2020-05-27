@@ -1,11 +1,14 @@
 <h2>Lista de nombres</h2>
 
+<input placeholder="Filtro" [(ngModel)]="filtro">
+
+<p>Filtrado por: {{filtro}}</p>
+
 <ul>
-  <li *ngFor="let name of names" (click)="clickList(name)">
+  <li *ngFor="let name of (names | filtros : filtro)" (click)="clickList(name)">
     {{name}}
   </li>
 </ul>
-
 <button (click)="clickButton()">
   No me toques!
 </button>
@@ -26,6 +29,8 @@
 <ng-template [ngIf]="shows">
   <p>Hola</p>
 </ng-template>
+
+
 <input [(ngModel)]="input">
 
 <p>Valor: {{input}}</p>
@@ -42,3 +47,8 @@
   Sin pipe: {{title}} <br/>
   Con pipe: {{title | titlecase}}
 </p>
+
+<p>Emitida: {{emitida}}</p>
+
+
+<app-second (aEnviar)="modificarEmitida($event)" [texto]="input"></app-second>

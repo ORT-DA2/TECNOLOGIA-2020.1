@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstModuleModule } from './first-module/first-module.module';
+import { EjemploPipe } from './ejemplo.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EjemploPipe,
   ],
   exports: [],
   imports: [

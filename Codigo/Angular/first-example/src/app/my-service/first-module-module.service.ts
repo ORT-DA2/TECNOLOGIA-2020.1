@@ -14,4 +14,8 @@ export class FirstModuleModuleService {
     names.push('Ale');
     return names;
   }
+
+  holaMundi() {
+    return "Hola mundo"
+  }
 }

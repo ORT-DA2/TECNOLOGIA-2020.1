@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck, OnChanges, OnDestroy } from '@angular/core';
 import { FirstModuleModuleService } from '../../../my-service/first-module-module.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class MyFirstComponent implements OnInit {
   input: string;
   text: string;
   title: string;
+  emitida: string;
+  filtro: string = "";
 
   constructor(private _service: FirstModuleModuleService) {
     this.names = [];
@@ -22,9 +24,12 @@ export class MyFirstComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*this.names.push('Nico');
-    this.names.push('Ale');*/
     this.names = this._service.getNames();
+    this.text = this._service.holaMundi();
+  }
+
+  modificarEmitida(aEnviar: string) {
+    this.emitida = aEnviar;
   }
 
   clickButton() {
@@ -33,5 +38,9 @@ export class MyFirstComponent implements OnInit {
 
   clickList(name: string) {
     alert('Nombre: ' + name);
+  }
+
+  tecla(event: any) {
+    alert(event.target.value);
   }
 }
