@@ -39,15 +39,15 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 5 - Mejoras del proyecto (DTO's y Repository), [Filters](/Clases/Clase5_Filters.md), Postman.
 
-- Clase 6 - [Reflection](/Clases/Clase6_1.md)
+- Clase 6 - [Reflection](/Clases/Clase6_Reflection.md)
 
 - Clase 7 - Deploy de la solución en IIS.
 
 ## Parte 2: Single Pages Applications y Angular
 
-- Clase 8 - [Introducción a SPAs](/Clases/Clase_8_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase_9_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes.md)
+- Clase 8 - [Introducción a SPAs](/Clases/Clase7_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase8_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes.md)
 
-- Clase 9 - [Componentes, Templates, Directivas, Data Binding y Pipes](/Clases/Clase_10_-_Componentes_Templates,_Bootstrapping,_Directivas_Data_Binding_y_Pipes.md) y [Custom Pipes y Service Básico](/Clases/Clase_10_-_Custom_Pipes_y_Service_Basico.md)
+- Clase 9 - [Componentes, Templates, Directivas, Data Binding y Pipes](/Clases/Clase8_Componentes_Templates,_Bootstrapping,_Directivas_Data_Binding_y_Pipes.md) y [Custom Pipes y Service Básico](/Clases/Clase9_Custom_Pipes_y_Service_Basico.md)
 
 ## Extra / Material Adicional:
 
