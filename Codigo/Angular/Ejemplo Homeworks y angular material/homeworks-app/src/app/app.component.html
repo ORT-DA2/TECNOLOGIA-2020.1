@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>Homeworks application</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['']">Inicio</button>
+  <button mat-menu-item [routerLink]="['/homeworks']">Homeworks</button>
+</mat-menu>
+
+<router-outlet></router-outlet>

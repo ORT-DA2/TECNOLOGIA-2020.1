@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+  <mat-card-header>
+      <mat-card-title>Crear tarea</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Descripción" [(ngModel)]="description">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Vencimiento" [(ngModel)]="dueDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="addHomework()">Agregar</button>
+  </mat-card-actions>
+</mat-card>

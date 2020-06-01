@@ -1,0 +1,8 @@
+<div clas="crop"
+    [style.width.px]="starWidht"
+    [title]="rating"
+    (click)='onClick()'>
+    <div style="width:86px">
+        <span *ngFor="let rating of Arr(rating).fill(1)">*</span>
+    </div>
+</div>

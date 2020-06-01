@@ -1,0 +1,64 @@
+<mat-card>
+  <div class="example-container">
+    <form class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Filtrar por" [(ngModel)]="listFilter"
+          name="name" />
+      </mat-form-field>
+      <label>
+        Filtrado por: {{listFilter | lowercase}}
+      </label>
+    </form>
+    <mat-slide-toggle (click)="onoffChange()">OFF/ON</mat-slide-toggle>
+    <br>
+    <label>{{onoff?"Encendido":"Apagado"}}</label>
+    <br>
+    <div>
+      <button mat-mini-fab color="primary" [routerLink]="['/newHomework']">+</button>
+    </div>
+    <br>
+    <mat-table [dataSource]="dataSource | homeworksFilter : listFilter"
+      class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+        <mat-cell *matCellDef="let element" [routerLink]="['/homeworks', element.id]"> {{element.description}} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="duedate">
+        <mat-header-cell *matHeaderCellDef> Fecha vencimiento </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dueDate}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="score">
+        <mat-header-cell *matHeaderCellDef> Score: {{pageTitle}}</mat-header-cell>
+        <mat-cell *matCellDef="let element"> <app-star [rating]="element.score" (ratingClicked)='onRatingClicked($event)'></app-star></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <div>
+  <mat-list role="list" *ngFor='let c of list_changesOnInit'>
+    <mat-list-item role="listitem">
+      {{ c }}
+    </mat-list-item>
+  </mat-list>
+  </div>
+  <div>
+    <mat-list role="list" *ngFor='let c of list_changesOnChanges'>
+      <mat-list-item role="listitem">
+        {{ c }}
+      </mat-list-item>
+    </mat-list>
+    </div>
+</mat-card>
