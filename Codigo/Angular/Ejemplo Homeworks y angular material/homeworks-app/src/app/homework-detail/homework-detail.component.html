@@ -1,0 +1,11 @@
+<div>
+    <div>
+      <h3> Ejercicios </h3>
+        <ul>
+          <li *ngFor="let exercice of homework.exercises">
+            {{exercice.problem}} [{{exercice.score}} pts.]
+          </li>
+        </ul>
+    </div>
+    <a (click)="onBack()"> Volver </a>
+</div>

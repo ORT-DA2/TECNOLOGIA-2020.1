@@ -1,0 +1,11 @@
+.crop {
+  overflow: hidden;
+}
+
+div {
+  cursor: pointer;
+}
+
+span {
+  margin: 3px;
+}
