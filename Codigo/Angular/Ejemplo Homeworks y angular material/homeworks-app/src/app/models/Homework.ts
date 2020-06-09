@@ -5,13 +5,12 @@ export class Homework {
   description: string;
   dueDate: Date;
   score: number;
-  exercises: Array<Exercise>;
+  //exercises: Array<Exercise>;
 
-  constructor(id: number, description:string, score:number, dueDate:Date, exercises: Array<Exercise>){
-      this.id = id;
+  constructor(description:string, score:number, dueDate:Date){//, exercises: Array<Exercise>){
       this.description = description;
       this.score = score;
       this.dueDate = dueDate;
-      this.exercises = exercises;
+      //this.exercises = exercises;
   }
 }

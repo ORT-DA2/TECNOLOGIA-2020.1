@@ -6,10 +6,11 @@ namespace Ej.DA
     public class EjContext : DbContext
     {
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Homework> Homeworks { get; set; }
 
         public EjContext(DbContextOptions options) : base(options)
         {
-            
+
         }
     }
 }

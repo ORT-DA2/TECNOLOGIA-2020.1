@@ -4,14 +4,16 @@ using Ej.DA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ej.DA.Migrations
 {
     [DbContext(typeof(EjContext))]
-    partial class EjContextModelSnapshot : ModelSnapshot
+    [Migration("20200609002147_para_ejangular")]
+    partial class para_ejangular
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

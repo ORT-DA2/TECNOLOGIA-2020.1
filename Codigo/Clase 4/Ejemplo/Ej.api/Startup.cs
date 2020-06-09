@@ -44,6 +44,18 @@ namespace Ej.api
             );
             services.AddScoped<IManagerDA<Person>, PersonManagerDA>();
             services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IManagerDA<Homework>, HomeworkManagerDA>();
+            services.AddScoped<IHomeworkService, HomeworkService>();
+
+            services.AddCors(
+                options => { options.AddPolicy(
+                    "CorsPolicy", 
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,9 +73,11 @@ namespace Ej.api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api ejemplo v1");
             });
 
+             app.UseCors("CorsPolicy");
+
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseRouting();           
 
             app.UseAuthorization();
 

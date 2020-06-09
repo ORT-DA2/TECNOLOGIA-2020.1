@@ -18,6 +18,9 @@ import { NewHomeworkComponent } from './new-homework/new-homework.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { EjemploInterceptorService } from './ejemplo-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,10 +38,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserAnimationsModule,
     MaterialComponentsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [
     HomeworksService,
-    HomeworkDetailGuard
+    HomeworkDetailGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EjemploInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

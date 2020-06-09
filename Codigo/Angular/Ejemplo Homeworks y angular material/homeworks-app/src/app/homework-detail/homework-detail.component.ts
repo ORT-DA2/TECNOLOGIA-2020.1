@@ -19,8 +19,14 @@ export class HomeworkDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = + this.currentRoute.snapshot.params["id"];
-    const hw: Homework = this.service.getHomework(id);
-    this.homework = hw;
+    this.service.getHomework(id).subscribe(
+      ((data: Homework) => this.result(data)),
+      ((error: any) => alert(error.message))
+    );
+  }
+
+  private result(data: Homework): void {
+    this.homework = data;
   }
 
   onBack(): void {

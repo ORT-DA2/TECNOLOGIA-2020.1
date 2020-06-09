@@ -18,11 +18,13 @@ export class HomeworkListComponent implements OnInit {
   constructor(private serviceHomeworks: HomeworksService) {}
 
   ngOnInit() {
-    this.dataSource = this.serviceHomeworks.getHomeworks();
+    this.serviceHomeworks.getHomeworks().subscribe(
+      ((data: Array<Homework>) => this.result(data)),
+      ((error: any) => alert(error.message))
+    );
   }
   private result(data: Array<Homework>): void {
     this.dataSource = data;
-    console.log(this.dataSource);
   }
   onoffChange(): void {
     this.onoff = !this.onoff;
