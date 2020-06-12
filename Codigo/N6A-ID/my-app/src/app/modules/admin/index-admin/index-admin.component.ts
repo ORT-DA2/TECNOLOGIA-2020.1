@@ -8,7 +8,7 @@ import { RouteInfoSideBar } from 'src/app/models/navigation/routeInfoSideBar';
 })
 export class IndexAdminComponent implements OnInit {
   adminItems: Array<RouteInfoSideBar> = [
-    { path: 'dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+    { path: 'dashboard', title: 'Dashboard', icon: 'bi bi-layout-wtf', class: '' },
     { path: 'logs', title: 'Logs', icon: 'dashboard', class: '' },
     { path: 'users', title: 'Users', icon: 'accessibility_new', class: '' },
     { path: 'areas', title: 'Areas', icon: 'business', class: '' }]

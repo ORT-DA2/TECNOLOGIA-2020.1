@@ -1,9 +1,6 @@
-<div class="sidebar-wrapper">
-    <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link">
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>
-    </ul>
+<div routerLinkActive="active" class="list-group list-group-flush">
+    <a [routerLink]="menuItem.path" class="list-group-item list-group-item-action bg-light"
+        *ngFor="let menuItem of menuItems">
+        {{menuItem.title}}
+    </a>
 </div>

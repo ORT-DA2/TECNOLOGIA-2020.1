@@ -1,23 +1,36 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { SessionService } from '../session/session.service';
 import { Observable, throwError } from 'rxjs';
 import { UserBasicInfo } from 'src/app/models/user/user-basic-info';
 import { UserDetailInfo } from 'src/app/models/user/user-detail-info';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class UserService {
   private uri = environment.WEB_API_URI + "/users";
 
-  constructor(private httpService: HttpClient, private sessionService: SessionService) { }
+  constructor(private httpService: HttpClient) { }
 
-  GetAll(): Observable<Array<UserBasicInfo>> {
-    return this.httpService.get<UserBasicInfo[]>(this.uri, this.sessionService.header).pipe(catchError(this.handleError));
+  GetAll(): Observable<UserBasicInfo[]>{
+    return this.httpService.get<UserBasicInfo[]>(this.uri).pipe(catchError(this.handleError));
+  }
+  /*
+    UserComponent -suscribe> UserService -request> WEB-API
+    1s
+    WEB-API -response> UserService -notifica a los que estan suscriptos> UserComponent -muestra datos en UI-
+  */
+
+  GetAllTwo(): Observable<UserBasicInfo[]>{
+    return this.httpService.get<UserBasicInfo[]>(this.uri);
   }
 
-  Get(userId: number): Observable<UserDetailInfo> {
+  GetAllResponse(): Observable<HttpResponse<UserBasicInfo[]>>{
+    return this.httpService.get<UserBasicInfo[]>(this.uri, {observe: 'response'});
+  }
+
+  /*Get(userId: number): Observable<UserDetailInfo> {
     return this.httpService.get<UserDetailInfo>(this.uri + "/" + userId, this.sessionService.header).pipe(catchError(this.handleError));
   }
 
@@ -31,13 +44,28 @@ export class UserService {
 
   Delete(userId: number): Observable<{}> {
     return this.httpService.delete(this.uri + "/" + userId, this.sessionService.header).pipe(catchError(this.handleError));
-  }
+  }*/
 
   private handleError(error: HttpErrorResponse) {
-    if (error.status != 200) {
-      return throwError(error);
-    } else {
-      return throwError(error);
+    let message: string;
+
+    if(error.error instanceof ErrorEvent){
+      //Error de conexion del lado del cliente
+
+      message = "Error: do it again";
+    }else{
+      //El backend respondio con status code de error
+      //el body de la response debe de dar mas informacion
+
+      if(error.status == 0){
+        message = "The server is shutdown";
+      }else{
+        //Depende de como me mande la api la response del error es lo que tengo que agarrar
+        message = error.error.message;
+      }
     }
+
+    //Retornamos un Observable de tipo error para el que usa el servicio
+    return throwError(message);
   };
 }
