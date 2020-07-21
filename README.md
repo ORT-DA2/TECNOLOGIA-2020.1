@@ -47,7 +47,7 @@ El curso tiene como objetivo construir un servidor API REST con WebApi y una SPA
 
 - Clase 8 - [Introducción a SPAs](/Clases/Clase7_Angular_y_las_SPAs.md) y [Conceptos basicos Angular](/Clases/Clase8_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes.md)
 
-- Clase 9 - [Componentes, Templates, Directivas, Data Binding y Pipes](/Clases/Clase8_Componentes_Templates,_Bootstrapping,_Directivas_Data_Binding_y_Pipes.md) y [Custom Pipes y Service Básico](/Clases/Clase9_Custom_Pipes_y_Service_Basico.md)
+- Clase 9 - [Componentes, Templates, Directivas, Data Binding y Pipes](/Clases/Clase8_Componentes_Templates_Bootstrapping_Directivas_Data_Binding_y_Pipes.md) y [Custom Pipes y Service Básico](/Clases/Clase9_Custom_Pipes_y_Service_Basico.md)
 
 - Clase 10 - [Conceptos avanzados](/Clases/Clase10_Conceptos_avanzados.md) y [Http, Observables y Mas sobre Routing](/Clases/Clase10_Http_y_Observables_y_Mas_sobre_Routing.md)
 
